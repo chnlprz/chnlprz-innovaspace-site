@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chanel — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: a fountain-pen notebook — dot-grid paper, blue-black ink, one colour per product. */
+  --paper:#F1F2F6;
+  --card:#FFFFFF;
+  --ink:#161A33;
+  --muted:#5A5F78;
+  --line:#DADCE6;
+  --accent:#2B4FD8;
+  --nudge:#E9A23B;
+  --noggin:#EE6A5A;
+  --drift:#8B7BE3;
+  --aura:#3E9C7E;
+  --display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);
+  background-image:radial-gradient(circle, #CDD0DD 1px, transparent 1.2px);
+  background-size:22px 22px;
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+p{margin:0}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font:800 20px var(--display);text-decoration:none}
+.brand span{font:500 12px var(--mono);color:var(--muted);margin-left:8px;letter-spacing:.04em}
+.navlinks{display:flex;gap:22px;font-size:15px}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:72px 0 56px}
+.hero .mono{margin-bottom:20px}
+.hero h1{font-size:clamp(40px,7.4vw,92px);line-height:.98;font-weight:800;max-width:15ch}
+.hl{position:relative;white-space:nowrap;cursor:default}
+.hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.08em;height:.26em;background:var(--c);opacity:.55;z-index:-1;border-radius:3px;transition:height .25s ease}
+.hl:hover::after{height:.85em}
+.hero h1{position:relative;z-index:0}
+.hero .lede{margin-top:28px;font-size:clamp(17px,2vw,20px);max-width:58ch;color:var(--muted)}
+.hero .lede b{color:var(--ink);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:22px}
+.legend span{display:inline-flex;align-items:center;gap:8px;font:500 13px var(--mono);color:var(--muted)}
+.legend i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font:600 15px var(--body);text-decoration:none;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost:hover{background:var(--card)}
+
+/* section heads */
+section{padding:64px 0}
+.shead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:32px;border-top:1.5px solid var(--ink);padding-top:16px}
+.shead h2{font-size:clamp(28px,4vw,44px);font-weight:800}
+
+/* featured */
+.feature{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:56px;align-items:start}
+.phone{background:var(--ink);border-radius:40px;padding:12px;box-shadow:0 30px 60px -30px rgba(22,26,51,.45);max-width:340px;margin:0 auto;width:100%}
+.screen{background:#FBFAF7;border-radius:30px;padding:22px 16px 18px;color:var(--ink)}
+.scr-top{display:flex;justify-content:space-between;align-items:baseline}
+.scr-top b{font:800 26px var(--display);letter-spacing:-.03em}
+.scr-top small{font:500 11px var(--mono);color:var(--muted)}
+.tag{font:400 13px var(--body);color:var(--muted);margin:2px 0 14px}
+.stats{display:flex;gap:6px;margin-bottom:12px}
+.chip{font:500 11px var(--mono);padding:4px 9px;border-radius:999px;background:#F0EEE8;color:var(--ink)}
+.chip.star{background:color-mix(in srgb,var(--nudge) 22%,#fff)}
+.matrix{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.q{border-radius:14px;padding:10px;min-height:108px;background:#fff;border:1px solid #ECEAE3}
+.q h4{margin:0 0 6px;font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--qc)}
+.q ul{margin:0;padding:0;list-style:none;font-size:12.5px;line-height:1.35;display:grid;gap:5px}
+.q li{display:flex;gap:6px}
+.q li::before{content:"";flex:none;width:11px;height:11px;margin-top:2px;border:1.5px solid #C9C6BC;border-radius:4px}
+.q li.done{color:var(--muted);text-decoration:line-through}
+.q li.done::before{background:var(--nudge);border-color:var(--nudge)}
+.capture{margin-top:10px;border:1.5px dashed #D3D0C6;border-radius:12px;padding:9px 12px;font-size:12.5px;color:var(--muted)}
+.caption{text-align:center;margin-top:14px}
+.status{display:inline-flex;align-items:center;gap:8px;font:500 12.5px var(--mono);padding:5px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.feature h3{font-size:clamp(36px,5vw,56px);font-weight:800;line-height:1}
+.feature h3 em{font-style:normal;color:var(--nudge)}
+.feature .sub{font-size:20px;margin:10px 0 24px;color:var(--muted)}
+.story{display:grid;gap:22px}
+.story h4{margin:0 0 6px;font:600 13px var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.story p{max-width:62ch}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:8px 0}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.fact b{display:block;font:800 26px var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.fact span{font-size:14px;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-size:14px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+
+/* lab */
+.lab{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px;border-top:6px solid var(--c)}
+.pcard h3{font-size:30px;font-weight:800}
+.pcard .tl{font:600 16px var(--body);color:var(--c);filter:brightness(.82)}
+.pcard p{font-size:15.5px}
+.pcard ul{margin:0;padding-left:18px;font-size:15px;display:grid;gap:4px}
+.pcard .q2{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line)}
+.pcard .q2 p{font-size:14.5px;color:var(--muted);font-style:italic}
+
+/* ecosystem */
+.eco{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;align-items:stretch;position:relative}
+.node{padding:24px;border:1.5px solid var(--ink);background:var(--card);margin-right:-1.5px}
+.node:first-child{border-radius:20px 0 0 20px}
+.node:last-child{border-radius:0 20px 20px 0;margin-right:0}
+.node .verb{font:800 clamp(30px,4vw,44px) var(--display);color:var(--c);filter:brightness(.85);letter-spacing:-.03em}
+.node h3{font-size:20px;margin:4px 0 10px}
+.node p{font-size:15px;color:var(--muted)}
+.node .ex{margin-top:14px;font:500 13.5px var(--mono);color:var(--ink);background:var(--paper);padding:8px 10px;border-radius:8px}
+.aura-note{margin-top:20px;display:flex;gap:12px;align-items:flex-start;font-size:15.5px;color:var(--muted);max-width:70ch}
+.aura-note i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--aura);margin-top:8px}
+
+/* principles */
+.princ{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;counter-reset:p}
+.pr{padding:22px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:4px 12px}
+.pr::before{counter-increment:p;content:counter(p,decimal-leading-zero);font:500 13px var(--mono);color:var(--muted);padding-top:6px;grid-row:span 2}
+.pr h3{font-size:22px;font-weight:600}
+.pr p{font-size:15.5px;color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px}
+.about .big{font:600 clamp(22px,2.6vw,30px)/1.3 var(--display);letter-spacing:-.015em}
+.about .big + p{margin-top:18px;color:var(--muted);max-width:60ch}
+.side{display:grid;gap:18px;align-content:start}
+.row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.row span:first-child{color:var(--muted)}
+.row span:last-child{text-align:right;font-weight:500}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper);border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;gap:24px}
+.contact h2{font-size:clamp(32px,5vw,60px);font-weight:800;max-width:16ch}
+.contact .mono{color:#A9AECB}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.links a{display:inline-flex;gap:8px;padding:12px 18px;border-radius:999px;border:1.5px solid #3A3F63;text-decoration:none;font-weight:500}
+.links a:hover{background:#252A4C}
+.links small{font:400 12px var(--mono);color:#A9AECB;align-self:center}
+footer{padding:28px 0 40px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:900px){
+  .feature,.about{grid-template-columns:1fr;gap:36px}
+  .lab{grid-template-columns:1fr}
+  .eco{grid-template-columns:1fr}
+  .node{margin:0 0 -1.5px 0}
+  .node:first-child{border-radius:20px 20px 0 0}
+  .node:last-child{border-radius:0 0 20px 20px;margin:0}
+  .princ{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .navlinks a:not(.keep){display:none}
+  .facts{grid-template-columns:1fr}
+  .hero{padding:48px 0 36px}
+  .hl{white-space:normal}
+  section{padding:44px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Chanel<span>/ Innova Space</span></a>
+    <div class="navlinks">
+      <a href="#nudge">Nudge!</a>
+      <a href="#lab">The Lab</a>
+      <a href="#about">About</a>
+      <a class="keep" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="mono">Psychology student · Product builder · Philippines</p>
+    <h1>Gentle systems for
+      <span class="hl" style="--c:var(--noggin)" title="Noggin">curious</span>,
+      <span class="hl" style="--c:var(--nudge)" title="Nudge!">busy</span>,
+      <span class="hl" style="--c:var(--drift)" title="Drift">feeling</span>
+      <span class="hl" style="--c:var(--aura)" title="AuraSync">humans</span>.</h1>
+    <p class="lede">I'm Chanel. I study <b>psychology</b>, I've spent <b>7 years in e-commerce</b>, and I love systems. I build small tools that make everyday life better in simple ways. Under <b>Innova Space</b>, I'm making four of them: one is live and three are in discovery.</p>
+    <div class="legend" aria-label="Product colour key">
+      <span style="--c:var(--nudge)"><i></i>Nudge! · live</span>
+      <span style="--c:var(--noggin)"><i></i>Noggin · discovery</span>
+      <span style="--c:var(--drift)"><i></i>Drift · discovery</span>
+      <span style="--c:var(--aura)"><i></i>AuraSync · discovery</span>
+    </div>
+    <div class="ctas">
+      <a class="btn primary" href="#nudge">See Nudge! →</a>
+      <a class="btn ghost" href="#lab">Visit the Lab</a>
+    </div>
+  </div>
+</header>
+
+<section id="nudge">
+  <div class="wrap">
+    <div class="shead"><h2>Featured project</h2><span class="status" style="--c:var(--nudge)"><i></i>Live · v2.0 PWA</span></div>
+    <div class="feature">
+      <div>
+        <div class="phone" role="img" aria-label="Illustrative mockup of the Nudge! matrix screen">
+          <div class="screen">
+            <div class="scr-top"><b>Nudge!</b><small>MON · 9 NOV</small></div>
+            <p class="tag">Your day, gently.</p>
+            <div class="stats"><span class="chip star">✦ 340 stardust</span><span class="chip">Lv 6</span><span class="chip">Energy: Normal</span></div>
+            <div class="matrix">
+              <div class="q" style="--qc:#C2412F"><h4>Do now</h4><ul><li class="done">Reply to supplier</li><li>Finish thesis edits</li></ul></div>
+              <div class="q" style="--qc:#2B4FD8"><h4>Schedule</h4><ul><li>Gym, leg day</li><li>Piano practice</li></ul></div>
+              <div class="q" style="--qc:#9A6A12"><h4>Delegate</h4><ul><li>Book courier pickup</li></ul></div>
+              <div class="q" style="--qc:#6B6F86"><h4>Drop</h4><ul><li class="done">Reorganize desktop</li></ul></div>
+            </div>
+            <div class="capture">+ Fast capture to Unsorted…</div>
+          </div>
+        </div>
+        <p class="caption mono">Illustrative mockup · sample tasks</p>
+      </div>
+
+      <div>
+        <h3>Nudge<em>!</em></h3>
+        <p class="sub">A priority tracker built for the tired version of you.</p>
+        <div class="story">
+          <div>
+            <h4>The problem</h4>
+            <p>Most task apps assume you have energy to organize while you capture. At the end of a long day you don't, so the app gets abandoned. I wanted a system that fits my real habits instead of one I'd quit in a week.</p>
+          </div>
+          <div>
+            <h4>The approach</h4>
+            <p>Capture first, sort later. Tasks land in Unsorted with an optional batch date, then get sorted into an Eisenhower Matrix when there's headspace. A nightly check-in in Upcoming briefs you for tomorrow before sleep. Rewards are based on effort (1 point per 15 minutes), and constellation levels only go up, so a slow week never costs you progress.</p>
+          </div>
+          <div class="facts">
+            <div class="fact"><b>8/8</b><span>build phases shipped for 2.0, Nov 2026</span></div>
+            <div class="fact"><b>0</b><span>sign-ups needed. Works offline first</span></div>
+            <div class="fact"><b>1 pt</b><span>for every 15 min of effort</span></div>
+          </div>
+          <div>
+            <h4>Under the hood</h4>
+            <div class="pills">
+              <span class="pill">Installable PWA</span><span class="pill">Offline-first</span><span class="pill">Cloudflare Workers</span><span class="pill">D1 sync (optional)</span><span class="pill">Desktop layout</span><span class="pill">Energy check-in</span><span class="pill">Master List · Archives · Progress</span>
+            </div>
+          </div>
+          <div>
+            <h4>What's next</h4>
+            <p>Passkey sign-in and push notifications, then an AI module: speak a batch of tasks, let it suggest priorities, and confirm them in one tap. The long-term goal is a native mobile app.</p>
+          </div>
+          <div class="ctas" style="margin-top:4px">
+            <a class="btn primary" href="https://nudge.innovaspace.app" target="_blank" rel="noopener">Open Nudge! ↗</a>
+            <a class="btn ghost" href="https://github.com/chnlprz/nudge" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="wrap">
+    <div class="shead"><h2>The Lab</h2><span class="mono">3 products in discovery &amp; development</span></div>
+    <div class="lab">
+      <article class="pcard" style="--c:var(--noggin)">
+        <span class="status" style="--c:var(--noggin);align-self:flex-start"><i></i>Discovery</span>
+        <h3>Noggin</h3>
+        <p class="tl">Stay Curious.</p>
+        <p>A friendly idea bank for passing questions. Save a thought in seconds as a Thought Nugget, find it later, and explore it only when you have time.</p>
+        <ul>
+          <li>Quick capture by typing or voice</li>
+          <li>Suggested categories you can always change</li>
+          <li>Short, clear research answers saved with the question</li>
+          <li>Optional Sync to Nudge! when curiosity becomes a plan</li>
+        </ul>
+        <div class="q2"><p class="mono" style="font-style:normal;margin-bottom:4px">Testing</p><p>Does a quick answer reward curiosity enough, and how much source transparency does it need to be trusted?</p></div>
+      </article>
+
+      <article class="pcard" style="--c:var(--drift)">
+        <span class="status" style="--c:var(--drift);align-self:flex-start"><i></i>Discovery</span>
+        <h3>Drift</h3>
+        <p class="tl">A daily check-in with a twist.</p>
+        <p>A private mood diary paired with a slow-mail game. You send letters to the past or future and might get replies from strangers across time.</p>
+        <ul>
+          <li>Quick mood check-ins with optional notes</li>
+          <li>Weekly and monthly reflections that show patterns</li>
+          <li>Stationery shop, keepsakes and a correspondent index</li>
+          <li>Diary content never shapes the letters</li>
+        </ul>
+        <div class="q2"><p class="mono" style="font-style:normal;margin-bottom:4px">Testing</p><p>Can waiting feel like a pleasure? And how do analytics show patterns without sounding like a diagnosis?</p></div>
+      </article>
+
+      <article class="pcard" style="--c:var(--aura)">
+        <span class="status" style="--c:var(--aura);align-self:flex-start"><i></i>Discovery</span>
+        <h3>AuraSync</h3>
+        <p class="tl">Your local wellness hub.</p>
+        <p>One place for wellness options that are usually scattered across platforms: coaches, events, wellness centers, spas, products, apps and getaways.</p>
+        <ul>
+          <li>Recommendations matched to your needs</li>
+          <li>Nearby options, saved coaches and recurring events</li>
+          <li>Groups and retreats</li>
+          <li>Product links and exclusive offers</li>
+        </ul>
+        <div class="q2"><p class="mono" style="font-style:normal;margin-bottom:4px">Testing</p><p>What makes wellness discovery feel curated and trustworthy, rather than like another directory?</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ecosystem">
+  <div class="wrap">
+    <div class="shead"><h2>How they fit together</h2><span class="mono">Innova Space ecosystem</span></div>
+    <div class="eco">
+      <div class="node" style="--c:var(--noggin)">
+        <div class="verb">Wonder</div>
+        <h3>Noggin · curiosity &amp; learning</h3>
+        <p>Catch the question before it disappears. Explore it when you're ready.</p>
+        <div class="ex">"How is origami done?"</div>
+      </div>
+      <div class="node" style="--c:var(--nudge)">
+        <div class="verb">Do</div>
+        <h3>Nudge! · getting things done</h3>
+        <p>When you decide to act, one deliberate sync turns the idea into steps.</p>
+        <div class="ex">☐ Fold an origami crane</div>
+      </div>
+      <div class="node" style="--c:var(--drift)">
+        <div class="verb">Feel</div>
+        <h3>Drift · reflection &amp; well-being</h3>
+        <p>Check in with yourself and notice the patterns behind your days.</p>
+        <div class="ex">Mood: calm · "Made my first crane."</div>
+      </div>
+    </div>
+    <p class="aura-note"><i></i><span><b style="color:var(--ink)">AuraSync</b> takes it offline and connects you with the coaches, places and people around you. Every handoff is optional. Exploring never turns into a commitment until you choose to act.</span></p>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="wrap">
+    <div class="shead"><h2>How I design</h2><span class="mono">Psychology, applied</span></div>
+    <div class="princ">
+      <div class="pr"><h3>Design for the tired version of you</h3><p>Capture should take seconds. Organizing can wait for a day when you have the energy.</p></div>
+      <div class="pr"><h3>Reward showing up</h3><p>No streaks to break and no progress to lose. Effort counts, even on slow days.</p></div>
+      <div class="pr"><h3>You stay in charge</h3><p>Suggestions are always editable, and nothing turns into a task unless you decide it should.</p></div>
+      <div class="pr"><h3>Patterns, not diagnoses</h3><p>Analytics describe what you logged. They help you notice things without telling you what's wrong with you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="shead"><h2>About me</h2><span class="mono">Hi, I'm Chanel</span></div>
+    <div class="about">
+      <div>
+        <p class="big">I'm a psychology student with seven years of e-commerce experience. I'm happiest when I'm building systems that quietly make life easier.</p>
+        <p>Psychology taught me why people do what they do. E-commerce taught me how real people use real products. I build where the two meet: small, warm tools that work with human habits instead of against them. I validate the idea first, ship in phases and keep refining based on how people actually use the product.</p>
+      </div>
+      <div class="side">
+        <div>
+          <div class="row"><span>Studying</span><span>BA Psychology</span></div>
+          <div class="row"><span>Experience</span><span>7 years, e-commerce</span></div>
+          <div class="row"><span>Building</span><span>Innova Space</span></div>
+          <div class="row"><span>Based in</span><span>Philippines</span></div>
+        </div>
+        <div>
+          <p class="mono" style="margin-bottom:10px">Off the clock</p>
+          <div class="pills"><span class="pill">🎤 Singing</span><span class="pill">🎹 Piano</span><span class="pill">📚 Reading</span><span class="pill">🏋️ Gym</span><span class="pill">✏️ Creating</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <p class="mono">Contact</p>
+      <h2>Let's build something gentle together.</h2>
+      <div class="links">
+        <a href="https://github.com/chnlprz" target="_blank" rel="noopener">GitHub ↗ <small>@chnlprz</small></a>
+        <a href="mailto:hello@innovaspace.app">Email <small>hello@innovaspace.app</small></a>
+        <a href="#contact">LinkedIn <small>[add link]</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© 2026 Chanel · Innova Space</span><span>Stay curious. Do gently. Feel freely.</span></div>
+</footer>
+
+</body>
+</html>

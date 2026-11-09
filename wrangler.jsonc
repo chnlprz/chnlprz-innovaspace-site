@@ -1,0 +1,7 @@
+{
+  // Innova Space site: Chanel's portfolio, static only. Served at innovaspace.app.
+  "name": "innovaspace-site",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./public" },
+  "routes": [{ "pattern": "innovaspace.app", "custom_domain": true }]
+}
