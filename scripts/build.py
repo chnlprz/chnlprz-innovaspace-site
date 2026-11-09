@@ -29,10 +29,10 @@ MOON = '<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 SUN = '<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
 
 def page(path, title, desc, body, current='', back=False):
-    depth = path.count('/')
+    url = 'https://innovaspace.app/' + ('' if path == 'index.html' else path[:-5])
     nav = ''.join(f'<a href="{href}"{" aria-current=\"page\"" if key == current else ""}{" class=\"hide-sm\"" if key == "work" else ""}>{label}</a>'
                   for key, href, label in [('work', '/#work', 'Work'), ('about', '/about', 'About'), ('contact', '/contact', 'Contact')])
-    left = '<a class="muted" href="/" style="font-size:14px">← All work</a>' if back else '<a class="brand" href="/">Chanel <span>· Innova Space</span></a>'
+    left = '<a class="muted" href="/" style="font-size:14px">← All work</a>' if back else '<a class="brand" href="/"><span class="is-mark" aria-hidden="true">I<b>S</b></span>Chanel Perez <span>· Innova Space</span></a>'
     doc = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,11 +42,25 @@ def page(path, title, desc, body, current='', back=False):
 <meta name="description" content="{E(desc)}">
 <meta name="theme-color" content="#F4F0E8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B0A09" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chanel Perez · Innova Space">
+<meta property="og:title" content="{E(title)}">
+<meta property="og:description" content="{E(desc)}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="https://innovaspace.app/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="Chanel Perez portfolio. Gentle systems for everyday life. Innova Space.">
+<meta name="twitter:card" content="summary">
+<meta name="author" content="Chanel Perez">
 <script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
@@ -107,7 +121,7 @@ home = f'''<main id="work" class="bento">
     <span class="more"><span>Read more and CV</span><span class="plus" aria-hidden="true">+</span></span>
   </a>
 </main>'''
-page('index.html', 'Chanel · Innova Space', 'Chanel builds gentle systems for everyday life: Nudge!, Noggin, Drift and AuraSync.', home, 'work')
+page('index.html', 'Chanel Perez · Gentle systems for everyday life', 'Psychology student and product builder. Founder of Innova Space, maker of Nudge!, Noggin, Drift and AuraSync.', home, 'work')
 
 # ── About ──
 JOBS = [
@@ -147,7 +161,7 @@ about = f'''<main class="tile about">
     <p class="muted" style="margin-top:auto;font-size:14px"><span class="gold">✦</span> Off the clock: singing, piano, reading and the gym. Curating pretty things, a good declutter now and then, and any cat that lets me pet it.</p>
   </div>
 </main>'''
-page('about.html', 'About Chanel · Innova Space', 'Psychology student with seven years in e-commerce, building gentle tools under Innova Space.', about, 'about')
+page('about.html', 'About · Chanel Perez', 'Psychology student with seven years in e-commerce, building gentle tools under Innova Space.', about, 'about')
 
 # ── Contact ──
 TOPICS = ['A project', 'Hiring', 'App feedback', 'Just saying hi']
@@ -176,7 +190,7 @@ contact = f'''<main class="contact">
     <p id="form-status" class="status-msg" role="status" aria-live="polite"></p>
   </form>
 </main>'''
-page('contact.html', 'Contact · Innova Space', 'Get in touch with Chanel about a project, a role or one of her apps.', contact, 'contact')
+page('contact.html', 'Contact · Chanel Perez', 'Get in touch with Chanel about a project, a role or one of her apps.', contact, 'contact')
 
 # ── Case studies ──
 def hero(k, tagline, status, facts, extra=''):
@@ -226,7 +240,7 @@ nudge += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span cla
           + '</div></section>')
 nudge += '''<div class="next"><section class="tile"><p class="label">What’s next</p><p style="font-size:18px;margin-top:12px">Speak a batch of tasks and let AI suggest where they go, confirmed in one tap like the Sort flow. Then a native app for the App Store.</p></section>
 <a class="tile" href="https://nudge.innovaspace.app"><span>Try it</span><span>nudge.innovaspace.app ↗</span></a></div>'''
-page('work/nudge.html', 'Nudge! case study · Innova Space', 'How Nudge! went from a single HTML file to a synced, behavior-science task app.', nudge, back=True)
+page('work/nudge.html', 'Nudge! case study · Chanel Perez', 'How Nudge! went from a single HTML file to a synced, behavior-science task app.', nudge, back=True)
 
 def wire(blocks):
     out = []
@@ -293,7 +307,7 @@ for d in DISC:
           + ''.join(f'<li class="{"done" if ok else ""}"><i>{"✓" if ok else ""}</i><span>{E(t)}</span></li>' for ok, t in d['progress'])
           + '</ul></section><section class="tile"><div class="sec-head" style="margin-bottom:18px"><h2 style="font-size:24px">Open questions</h2></div><ul class="qs">'
           + ''.join(f'<li>{E(q)}</li>' for q in d['qs']) + '</ul></section></div>')
-    page(f'work/{k}.html', f'{NAME[k]} case study · Innova Space', f'{NAME[k]}: {d["tag"]}', b, back=True)
+    page(f'work/{k}.html', f'{NAME[k]} case study · Chanel Perez', f'{NAME[k]}: {d["tag"]}', b, back=True)
 
-(ROOT / 'assets/favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22.5" fill="#0B0A09"/><text x="50" y="70" text-anchor="middle" font-family="Georgia,serif" font-size="62" fill="#D8B46A">C</text></svg>')
+_unused = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22.5" fill="#0B0A09"/><text x="50" y="70" text-anchor="middle" font-family="Georgia,serif" font-size="62" fill="#D8B46A">C</text></svg>')
 print('built')

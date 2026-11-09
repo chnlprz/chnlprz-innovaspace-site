@@ -237,3 +237,10 @@ footer.foot { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 .how b { font-size: 15px; font-weight: 600; }
 .how span { font-size: 13px; line-height: 1.45; color: var(--muted); }
 @media (max-width: 680px) { .how { grid-template-columns: 1fr; } }
+
+/* Header IS mark (Bodoni, medium) */
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.is-mark { font-family: var(--serif); font-weight: 500; font-variation-settings: 'opsz' 24; font-size: 26px; line-height: 1; letter-spacing: 0; color: var(--ink); }
+.is-mark b { font-weight: 500; color: var(--accent); margin-left: .03em; }
+.brand { white-space: nowrap; }
+@media (max-width: 680px) { .brand > span:last-child { display: none; } }
