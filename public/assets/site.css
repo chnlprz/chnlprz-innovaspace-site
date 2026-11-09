@@ -230,3 +230,10 @@ footer.foot { display: flex; justify-content: space-between; flex-wrap: wrap; ga
   .feature { padding: 28px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* About · How I work */
+.how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.how div { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 16px; background: var(--soft); }
+.how b { font-size: 15px; font-weight: 600; }
+.how span { font-size: 13px; line-height: 1.45; color: var(--muted); }
+@media (max-width: 680px) { .how { grid-template-columns: 1fr; } }

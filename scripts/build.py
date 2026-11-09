@@ -103,7 +103,7 @@ home = f'''<main id="work" class="bento">
   </a>
 ''' for k, d in PRODS) + '''  <a class="tile about-tile" href="/about">
     <span style="font-size:12px;opacity:.75">About me</span>
-    <span style="font-size:15px;line-height:1.5">Psychology, e-commerce and a love for systems. Also singing, piano, reading and the gym.</span>
+    <span style="font-size:15px;line-height:1.5">Psychology, e-commerce and a love for systems. Also cats, curating and a good declutter.</span>
     <span class="more"><span>Read more and CV</span><span class="plus" aria-hidden="true">+</span></span>
   </a>
 </main>'''
@@ -126,7 +126,12 @@ about = f'''<main class="tile about">
   <div class="body">
     <div style="display:flex;flex-direction:column;gap:10px">
       <p class="label">About me</p>
-      <p class="intro-text">Psychology student with nearly seven years of fully remote work for a major UK online retailer. I love systems and making life better in simple ways, so I build small tools that work with how people really behave.</p>
+      <p class="intro-text">Psychology student, seven years in remote e-commerce, and an INTJ with a child-like sense of wonder. I’m in it for the vision, not just the invoice. I don’t stop at “it works”: I make things simple, intuitive and efficient, built around the habits people already have. Because human‑ing should be easy.</p>
+    </div>
+    <div class="how">
+      <div><b>Vision first.</b><span>I want to understand the why before I build the what.</span></div>
+      <div><b>Simple beats clever.</b><span>Efficient, intuitive, nothing extra.</span></div>
+      <div><b>Habits, not willpower.</b><span>Tools should fit how people really live.</span></div>
     </div>
     <div class="cv">
       <div class="col"><p class="eyebrow">Experience</p>{''.join(f'<div class="job"><b>{E(a)}</b><span>{E(b)}</span><span>{E(c)}</span></div>' for a, b, c in JOBS)}</div>
@@ -139,7 +144,7 @@ about = f'''<main class="tile about">
         <p style="font-size:14px">English, Filipino</p>
       </div>
     </div>
-    <p class="muted" style="margin-top:auto;font-size:14px"><span class="gold">✦</span> Off the clock: singing, piano, reading, the gym and creating</p>
+    <p class="muted" style="margin-top:auto;font-size:14px"><span class="gold">✦</span> Off the clock: singing, piano, reading and the gym. Curating pretty things, a good declutter now and then, and any cat that lets me pet it.</p>
   </div>
 </main>'''
 page('about.html', 'About Chanel · Innova Space', 'Psychology student with seven years in e-commerce, building gentle tools under Innova Space.', about, 'about')
