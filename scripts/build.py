@@ -151,7 +151,7 @@ about = f'''<main class="tile about">
       <div class="col"><p class="eyebrow">Experience</p>{''.join(f'<div class="job"><b>{E(a)}</b><span>{E(b)}</span><span>{E(c)}</span></div>' for a, b, c in JOBS)}</div>
       <div class="col">
         <p class="eyebrow">Education</p>
-        <div><b style="font-size:15px">AB Psychology</b><p class="muted" style="font-size:13px">CAP College Foundation, Inc. · June 2027</p></div>
+        <div><b style="font-size:15px">AB Psychology</b><p class="muted" style="font-size:13px">CAP College Foundation, Inc. · Currently enrolled</p></div>
         <p class="eyebrow" style="margin-top:6px">Tools</p>
         <div class="row" style="gap:6px">{''.join(f'<span class="chip" style="font-size:12px">{E(t)}</span>' for t in TOOLS)}</div>
         <p class="eyebrow" style="margin-top:6px">Languages</p>
