@@ -86,16 +86,16 @@ def shot(name, alt, cls='shot'):
 
 # ── Home ──
 PRODS = [
- ('noggin', 'An idea bank for passing questions. Stay curious.'),
- ('drift', 'Daily check-ins that earn letters to and from fictional pen pals across time.'),
- ('aurasync', 'Your local wellness hub, all in one place.'),
+ ('noggin', 'An idea bank for passing questions. Stay curious.', 'Live demo · v1'),
+ ('drift', 'Daily check-ins that earn letters to and from fictional pen pals across time.', 'Discovery'),
+ ('aurasync', 'Your local wellness hub, all in one place.', 'Discovery'),
 ]
 home = f'''<main id="work" class="bento">
   <section class="tile intro">
-    <p class="muted" style="font-size:13px">Psychology student · 7 years in e-commerce · Philippines</p>
+    <p class="muted" style="font-size:13px">Independent product builder · Behavioral science · Philippines</p>
     <div>
       <h1>Gentle systems for <span class="gold">everyday</span> life.</h1>
-      <p class="lede">I build small, warm tools that work with human habits. One is live, three are in discovery.</p>
+      <p class="lede">I build small, warm tools grounded in psychology and shaped around real habits. Nudge! is live, Noggin? has a v1 demo, and two more are in discovery.</p>
     </div>
     <div class="row"><a class="btn gold" href="/work/nudge">See my work</a><a class="btn line" href="/contact">Say hello</a></div>
   </section>
@@ -112,16 +112,16 @@ home = f'''<main id="work" class="bento">
     {shot('home', 'Nudge! home screen with the Task Banner')}
   </section>
 ''' + ''.join(f'''  <a class="tile prod" href="/work/{k}">
-    <div class="head">{icon(k, 40)}<span>Discovery</span></div>
-    <div><h3>{WORD[k]}</h3><p>{E(d)}</p></div>
+    <div class="head">{icon(k, 40)}<span>{'<i class="dot"></i> ' if st.startswith('Live') else ''}{st}</span></div>
+    <div><h3>{WORD[k]}</h3><p>{E(d)}</p><span class="cta">Explore case study →</span></div>
   </a>
-''' for k, d in PRODS) + '''  <a class="tile about-tile" href="/about">
+''' for k, d, st in PRODS) + '''  <a class="tile about-tile" href="/about">
     <span style="font-size:12px;opacity:.75">About me</span>
     <span style="font-size:15px;line-height:1.5">Psychology, e-commerce and a love for systems. Also cats, curating and a good declutter.</span>
     <span class="more"><span>Read more and CV</span><span class="plus" aria-hidden="true">+</span></span>
   </a>
 </main>'''
-page('index.html', 'Chanel Perez · Gentle systems for everyday life', 'Psychology student and product builder. Founder of Innova Space, maker of Nudge!, Noggin, Drift and AuraSync.', home, 'work')
+page('index.html', 'Chanel Perez · Gentle systems for everyday life', 'Independent product builder with a behavioral-science perspective. Founder of Innova Space, maker of Nudge!, Noggin, Drift and AuraSync.', home, 'work')
 
 # ── About ──
 JOBS = [
@@ -234,6 +234,13 @@ nudge += grid4([('Capture first, sort later', 'Fast capture to Unsorted with an 
                 ('Effort points, up only', '1 point per 15 minutes. Constellation levels never drop. Stardust and peso rewards.'),
                 ('Energy aware', 'A daily energy check-in, plus an optional cycle-based estimate. Your answer always wins.'),
                 ('Offline, synced if you want', 'Works without an account. Passkey sign-in syncs devices and sends reminders.')])
+nudge += steps('Decisions that changed', 'What I changed after using v1 every day, and why', [
+  ('Rebuild', 'Start over, on paper first', 'v1 grew as one HTML file. For 2.0 I wrote every rule and the data model down first, then rebuilt in reviewed phases.'),
+  ('Rewards', 'Effort, not completion', '1 point per 15 minutes of effort, and multi-day tasks are checked off per day, so big tasks still pay off along the way.'),
+  ('Ranks', 'Alchemy to constellations', 'Levels come from lifetime XP and never drop. Stardust is spent separately, so spending never costs you a level.'),
+  ('Capture', 'Categories became optional', 'Anything unpicked is Uncategorized. Sorting can wait, so capture stays instant on tired days.'),
+  ('Energy', 'Your answer always wins', 'The optional cycle-based estimate only suggests. The daily check-in overrides it and feeds Analytics.'),
+  ('Accounts', 'Offline first, sign-up optional', 'Everything works on the device. Passkeys and sync are there for people who want more than one device.')])
 nudge += '<section class="tile dark usp"><p class="label">Why it’s different</p><p>Built on behavior science, not willpower. It plans for low-energy days instead of punishing them.</p></section>'
 nudge += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens from v2.6 with sample data. Dark mode shows the Supernova theme.</span></div><div class="screens">'
           + ''.join(f'<figure>{shot(n, "Nudge! " + c)}<figcaption>{E(c)}</figcaption></figure>' for n, c in [('home', 'Home · Task Banner, widgets and today'), ('matrix', 'Matrix · sorted for today'), ('avoided', 'Analytics · avoided tasks and B=MAP'), ('rank', 'Rank · constellations that only go up')])
@@ -258,8 +265,8 @@ def wire(blocks):
     return '<div class="wire" aria-hidden="true">' + ''.join(out) + '</div>'
 
 DISC = [
- dict(k='noggin', tag='Stay curious. A friendly idea bank for passing questions.', stage='Concept',
-  facts=[('Stage', 'Concept and discovery'), ('Platform', 'Planned: mobile-first PWA'), ('Role', 'Research, design, build'), ('Ecosystem', 'Learn here, then sync to Nudge! to act')],
+ dict(k='noggin', tag='Stay curious. A place for the thoughts you don’t want to lose.', stage='Live demo · v1', demo='https://noggin.innovaspace.app',
+  facts=[('Stage', 'v1 demo live, still in discovery'), ('Platform', 'Planned: mobile-first PWA'), ('Role', 'Research, design, build'), ('Ecosystem', 'Learn here, then sync to Nudge! to act')],
   problem='Curious thoughts arrive when you can’t stop to look them up. They get forgotten, scattered across notes or lost in open tabs.',
   hyp='If saving a question takes seconds and the first answer is short and clear, people will come back to their curiosity instead of losing it.',
   note='Save first, explore later',
@@ -268,7 +275,7 @@ DISC = [
   screens=[('Capture', [('title', 'What are you wondering?'), ('input', 'How is origami done?', 70), ('hint', 'Suggested category'), ('chips', ['Arts and crafts', 'Science', 'Change']), ('go', 'Save Nugget')]),
            ('Question bank', [('title', 'Your Nuggets'), ('chips', ['All', 'Science', 'Arts', 'Life']), ('card', 'How is origami done?', 'Arts and crafts · today'), ('card', 'Why are we human?', 'Life · 3 days ago'), ('card', 'Where did we come from?', 'Science · last week'), ('ghost', '+ New Nugget')]),
            ('Nugget detail', [('hint', 'Arts and crafts'), ('title', 'How is origami done?'), ('ph', 'Short answer: folding one square sheet without cuts or glue…', 150), ('ghost', 'Explore more'), ('go', 'Sync to Nudge!')])],
-  progress=[(1, 'Concept, principles and product discovery doc'), (1, 'Name, tagline and mock brand mark'), (0, 'Interviews with people who collect random questions'), (0, 'Clickable prototype of capture and the question bank'), (0, 'Test suggested categories against manual sorting')],
+  progress=[(1, 'Concept, principles and product discovery doc'), (1, 'Name, tagline and brand mark'), (1, 'v1 demo live: capture without an account, categories, sorting, steps, Sync to Nudge! and backups'), (0, 'Interviews with people who collect random questions'), (0, 'Clickable prototype of capture and the question bank'), (0, 'Test suggested categories against manual sorting')],
   qs=['How much source transparency does a quick answer need to be trusted?', 'Do people need search, tags or pins to find Nuggets again?', 'How should duplicate or closely related questions be handled?']),
  dict(k='drift', tag='A daily check-in with a twist.', stage='Concept',
   facts=[('Stage', 'Concept and discovery'), ('Platform', 'Planned: mobile-first PWA'), ('Role', 'Research, design, build'), ('Pen pals', 'Fictional characters, never real strangers')],
@@ -297,7 +304,9 @@ DISC = [
 ]
 for d in DISC:
     k = d['k']
-    b = hero(k, d['tag'], f'In discovery · {E(d["stage"])}', d['facts'])
+    demo = d.get('demo')
+    b = hero(k, d['tag'], (f'<i class="dot"></i>{E(d["stage"])}' if demo else f'In discovery · {E(d["stage"])}'), d['facts'],
+             f'<a class="btn gold" href="{demo}">Try the demo ↗</a>' if demo else '')
     b += pair('The problem', d['problem'], 'Hypothesis', d['hyp'])
     b += steps('How it works', d['note'], [(f'0{i+1}', t, x) for i, (t, x) in enumerate(d['how'])], num=True)
     b += grid4(d['feats'])

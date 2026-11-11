@@ -244,3 +244,5 @@ footer.foot { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 .is-mark b { font-weight: 500; color: var(--accent); margin-left: .03em; }
 .brand { white-space: nowrap; }
 @media (max-width: 680px) { .brand > span:last-child { display: none; } }
+.prod .cta { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.prod .head .dot { margin-right: 4px; vertical-align: middle; }
