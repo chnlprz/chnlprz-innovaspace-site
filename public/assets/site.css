@@ -246,3 +246,19 @@ footer.foot { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 @media (max-width: 680px) { .brand > span:last-child { display: none; } }
 .prod .cta { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--accent); }
 .prod .head .dot { margin-right: 4px; vertical-align: middle; }
+
+/* Nudge · Make it yours, What I tested */
+.yours { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; padding: 40px; }
+.yours h2 { font-size: 30px; font-weight: 600; letter-spacing: -.02em; margin: 10px 0 14px; }
+.yours-copy p.muted { font-size: 16px; line-height: 1.6; max-width: 46ch; }
+.yours-shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.yours-shots figure { margin: 0; display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center; font-size: 13px; color: var(--muted); }
+.yours-shots .shot { width: 100%; max-width: 230px; }
+.learned { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.learned > div { display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: 18px; background: var(--soft); }
+.learned b { font-size: 15px; font-weight: 600; }
+.learned span { font-size: 14px; line-height: 1.5; color: var(--muted); }
+.learned i { font-style: normal; font-size: 13px; line-height: 1.5; color: var(--accent); margin-top: auto; padding-top: 6px; }
+.learned .open { background: transparent; border: 1px dashed var(--line); }
+@media (max-width: 1024px) { .yours { grid-template-columns: 1fr; } .learned { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .yours { padding: 28px; } .learned { grid-template-columns: 1fr; } }

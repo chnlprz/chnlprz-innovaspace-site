@@ -101,7 +101,7 @@ home = f'''<main id="work" class="bento">
   </section>
   <section class="tile feat">
     <div class="copy">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">{icon('nudge', 48)}<span class="muted" style="font-size:13px;display:inline-flex;align-items:center;gap:8px"><i class="dot"></i>Featured · Live v2.6</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">{icon('nudge', 48)}<span class="muted" style="font-size:13px;display:inline-flex;align-items:center;gap:8px"><i class="dot"></i>Featured · Live v2.7</span></div>
       <div>
         <h2 class="wordmark">{WORD['nudge']}</h2>
         <p class="muted" style="font-size:21px;margin-top:10px">Your day, gently.</p>
@@ -212,8 +212,8 @@ def steps(title, note, items, num=False, now_last=False):
 def grid4(items):
     return '<div class="grid4">' + ''.join(f'<div class="tile"><b>{E(a)}</b><span>{E(b)}</span></div>' for a, b in items) + '</div>'
 
-nudge = hero('nudge', 'Your day, gently. A priority tracker built for the tired version of you.', '<i class="dot"></i>Live · v2.6',
-  [('Role', 'Research, design and build. Solo, with AI as pair programmer'), ('Timeline', 'v1.0 to v2.6, November 2026'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Stack', 'TypeScript, IndexedDB, Cloudflare Workers and D1')],
+nudge = hero('nudge', 'Your day, gently. A priority tracker built for the tired version of you.', '<i class="dot"></i>Live · v2.7',
+  [('Role', 'Research, design and build. Solo, with AI as pair programmer'), ('Timeline', 'v1.0 to v2.7, November 2026'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Stack', 'TypeScript, IndexedDB, Cloudflare Workers and D1')],
   '<a class="btn gold" href="https://nudge.innovaspace.app">Open Nudge! ↗</a>')
 nudge += pair('The problem', 'Task apps expect you to organize while you capture. On tired days that’s too much, so the app gets abandoned and missed tasks start to feel like failure.',
               'What Nudge! does', 'Capture first and sort later. The right task rises at the right time, and effort is rewarded instead of streaks, so a slow week never costs you progress.')
@@ -241,8 +241,20 @@ nudge += steps('Decisions that changed', 'What I changed after using v1 every da
   ('Capture', 'Categories became optional', 'Anything unpicked is Uncategorized. Sorting can wait, so capture stays instant on tired days.'),
   ('Energy', 'Your answer always wins', 'The optional cycle-based estimate only suggests. The daily check-in overrides it and feeds Analytics.'),
   ('Accounts', 'Offline first, sign-up optional', 'Everything works on the device. Passkeys and sync are there for people who want more than one device.')])
+nudge += f'''<section class="tile yours"><div class="yours-copy"><p class="label">Make it yours</p><h2>Full when you want it. A plain list when you don’t.</h2>
+  <p class="muted">Every layer is optional: the Task Banner, the widgets, points and rewards, the energy check-in. Switch them off and Nudge! becomes a calm, simple task list. No pressure. The point is that anyone can use it, whatever their habits need.</p></div>
+  <div class="yours-shots"><figure>{shot('home', 'Nudge! home with everything on')}<figcaption>Everything on</figcaption></figure><figure>{shot('min', 'Nudge! home in minimal mode')}<figcaption>Minimal: banner, widgets and points off</figcaption></figure></div></section>'''
+nudge += '''<section class="tile"><div class="sec-head"><h2>What I tested and learned</h2><span class="muted" style="font-size:13px">From my own daily use of 2.6, written down as I went</span></div>
+<div class="learned">
+  <div><b>Reminders didn’t always arrive.</b><span>I missed a 9 PM briefing and a timed test task.</span><i>2.7: reminders go out within a minute, late-added tasks are scheduled, and Settings shows what’s coming up and what was sent.</i></div>
+  <div><b>I couldn’t find the briefing time.</b><span>It lived only under Home screen settings.</span><i>2.7: it’s also in Notifications, where I looked first.</i></div>
+  <div><b>The briefing notice stayed after I tapped it.</b><span>It should clear and take me to tomorrow.</span><i>2.7: it dismisses and opens Upcoming, from the push too.</i></div>
+  <div><b>Lists didn’t behave the same.</b><span>Upcoming items weren’t tappable, and points showed in some lists only.</span><i>2.7: tap any Upcoming item for details; points show in every list and the calendar, and hide when points are off.</i></div>
+  <div><b>Long names got cut off in the banner.</b><span>The most important task was the one I couldn’t read.</span><i>2.7: long names scroll gently.</i></div>
+  <div class="open"><b>Still open.</b><span>A confirmation before redeeming a reward, a full points history, sorting in the Matrix and Task Demand, where Anytime tasks belong, and a fair bonus for finishing dated tasks early.</span><i>In progress for the next release.</i></div>
+</div></section>'''
 nudge += '<section class="tile dark usp"><p class="label">Why it’s different</p><p>Built on behavior science, not willpower. It plans for low-energy days instead of punishing them.</p></section>'
-nudge += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens from v2.6 with sample data. Dark mode shows the Supernova theme.</span></div><div class="screens">'
+nudge += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens from v2.6–2.7 with sample data. Dark mode shows the Supernova theme.</span></div><div class="screens">'
           + ''.join(f'<figure>{shot(n, "Nudge! " + c)}<figcaption>{E(c)}</figcaption></figure>' for n, c in [('home', 'Home · Task Banner, widgets and today'), ('matrix', 'Matrix · sorted for today'), ('avoided', 'Analytics · avoided tasks and B=MAP'), ('rank', 'Rank · constellations that only go up')])
           + '</div></section>')
 nudge += '''<div class="next"><section class="tile"><p class="label">What’s next</p><p style="font-size:18px;margin-top:12px">Speak a batch of tasks and let AI suggest where they go, confirmed in one tap like the Sort flow. Then a native app for the App Store.</p></section>
