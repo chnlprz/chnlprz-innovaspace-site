@@ -11,7 +11,7 @@ GITHUB = 'https://github.com/chnlprz'
 ICON = {
  'nudge': '<rect width="100" height="100" rx="22.5" fill="#5e3449"/><g fill="none" stroke="#f3e9ec" stroke-width="5.5"><rect x="25" y="25" width="22" height="22" rx="6"/><rect x="53" y="25" width="22" height="22" rx="6"/><rect x="25" y="53" width="22" height="22" rx="6"/></g><g transform="rotate(14 66 66)"><rect x="56" y="56" width="22" height="22" rx="6" fill="#e0946f"/></g>',
  'noggin': '<rect width="256" height="256" rx="58" fill="#f6f1e7"/><path d="M91 95 C94 47 162 48 164 94 C166 119 128 122 128 153" fill="none" stroke="#0b0a09" stroke-width="16" stroke-linecap="round"/><circle cx="128" cy="192" r="15" fill="#efb94f"/>',
- 'drift': '<rect width="100" height="100" rx="22" fill="#1a1410"/><path d="M14 60 H86 L72 77 H28 Z" fill="#c49a5c"/><path d="M50 18 L50 60 L23 60 Z" fill="#e2c38f"/><path d="M53 27 L53 60 L75 60 Z" fill="#a67a42"/>',
+ 'drift': '<rect width="100" height="100" rx="22" fill="#1a1410"/><rect x="1" y="1" width="98" height="98" rx="21" fill="none" stroke="#6b5236" stroke-width="2"/><path d="M14 60 H86 L72 77 H28 Z" fill="#c49a5c"/><path d="M50 18 L50 60 L23 60 Z" fill="#e2c38f"/><path d="M53 27 L53 60 L75 60 Z" fill="#a67a42"/>',
  'aurasync': '<rect width="100" height="100" rx="22.5" fill="#3D6656"/><g fill="none" stroke="#F1EDE4" stroke-width="5.5" stroke-linejoin="round"><path d="M50 70 C40 58 40 38 50 26 C60 38 60 58 50 70 Z"/><path d="M50 70 C36 70 24 58 22 44 C36 44 46 54 50 70 Z"/><path d="M50 70 C64 70 76 58 78 44 C64 44 54 54 50 70 Z"/></g><circle cx="50" cy="78" r="4.5" fill="#EDB27A"/>',
 }
 WORD = {
