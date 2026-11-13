@@ -30,7 +30,7 @@ MOON = '<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 SUN = '<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
 
 def page(path, title, desc, body, current='', back=False):
-    url = 'https://innovaspace.app/' + ('' if path == 'index.html' else path[:-5])
+    url = 'https://chanelperez.innovaspace.app/' + ('' if path == 'index.html' else path[:-5])
     nav = ''.join(f'<a href="{href}"{" aria-current=\"page\"" if key == current else ""}{" class=\"hide-sm\"" if key == "work" else ""}>{label}</a>'
                   for key, href, label in [('work', '/#work', 'Work'), ('about', '/about', 'About'), ('contact', '/contact', 'Contact')])
     left = '<a class="muted" href="/" style="font-size:14px">← All work</a>' if back else '<a class="brand" href="/"><span class="is-mark" aria-hidden="true">I<b>S</b></span>Chanel Perez <span>· Innova Space</span></a>'
@@ -52,7 +52,7 @@ def page(path, title, desc, body, current='', back=False):
 <meta property="og:title" content="{E(title)}">
 <meta property="og:description" content="{E(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="https://innovaspace.app/assets/og.jpg">
+<meta property="og:image" content="https://chanelperez.innovaspace.app/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="1200">
 <meta property="og:image:alt" content="Chanel Perez portfolio. Gentle systems for everyday life. Innova Space.">
@@ -71,7 +71,7 @@ def page(path, title, desc, body, current='', back=False):
   <nav class="nav" aria-label="Main">{nav}<button type="button" class="theme-btn" aria-label="Switch theme">{MOON}{SUN}</button></nav>
 </header>
 {body}
-<footer class="foot"><span>© 2026 Innova Space</span><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></footer>
+<footer class="foot"><span>© 2026 <a href="https://innovaspace.app">Innova Space ↗</a></span><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></footer>
 </div>
 <script src="/assets/site.js" defer></script>
 </body>

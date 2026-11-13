@@ -1,11 +1,11 @@
 {
   // Innova Space site: Chanel's portfolio, static pages in public/ (built by scripts/build.py)
-  // plus /api/contact, which emails the Innova inbox. Served at innovaspace.app.
+  // plus /api/contact, which emails the Innova inbox. Served at chanelperez.innovaspace.app (innovaspace.app is the app gallery).
   "name": "innovaspace-site",
   "main": "worker/index.js",
   "compatibility_date": "2026-11-01",
   "assets": { "directory": "./public", "binding": "ASSETS", "html_handling": "auto-trailing-slash", "run_worker_first": ["/api/*"] },
-  "routes": [{ "pattern": "innovaspace.app", "custom_domain": true }],
+  "routes": [{ "pattern": "chanelperez.innovaspace.app", "custom_domain": true }],
   // Must be a verified destination in Email Routing for innovaspace.app.
   "send_email": [{ "name": "CONTACT_MAIL", "destination_address": "hello.innovaspace@gmail.com" }],
   "vars": { "CONTACT_FROM": "site@innovaspace.app", "CONTACT_TO": "hello.innovaspace@gmail.com" }
