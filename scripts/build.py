@@ -11,7 +11,7 @@ GITHUB = 'https://github.com/chnlprz'
 ICON = {
  'nudge': '<rect width="100" height="100" rx="22.5" fill="#5e3449"/><g fill="none" stroke="#f3e9ec" stroke-width="5.5"><rect x="25" y="25" width="22" height="22" rx="6"/><rect x="53" y="25" width="22" height="22" rx="6"/><rect x="25" y="53" width="22" height="22" rx="6"/></g><g transform="rotate(14 66 66)"><rect x="56" y="56" width="22" height="22" rx="6" fill="#e0946f"/></g>',
  'noggin': '<rect width="256" height="256" rx="58" fill="#f6f1e7"/><path d="M91 95 C94 47 162 48 164 94 C166 119 128 122 128 153" fill="none" stroke="#0b0a09" stroke-width="16" stroke-linecap="round"/><circle cx="128" cy="192" r="15" fill="#efb94f"/>',
- 'drift': '<rect width="100" height="100" rx="22.5" fill="#2B3152"/><path d="M22 58 H78 L68 72 H32 Z M36 58 L50 30 L64 58" fill="none" stroke="#F1EDE4" stroke-width="5.5" stroke-linejoin="round"/><circle cx="50" cy="48" r="5.5" fill="#D9825B"/><path d="M18 82 q8 -5 16 0 t16 0 t16 0 t16 0" fill="none" stroke="#F1EDE4" stroke-width="4" stroke-opacity="0.45" stroke-linecap="round"/>',
+ 'drift': '<rect width="100" height="100" rx="22" fill="#1a1410"/><path d="M14 60 H86 L72 77 H28 Z" fill="#c49a5c"/><path d="M50 18 L50 60 L23 60 Z" fill="#e2c38f"/><path d="M53 27 L53 60 L75 60 Z" fill="#a67a42"/>',
  'aurasync': '<rect width="100" height="100" rx="22.5" fill="#3D6656"/><g fill="none" stroke="#F1EDE4" stroke-width="5.5" stroke-linejoin="round"><path d="M50 70 C40 58 40 38 50 26 C60 38 60 58 50 70 Z"/><path d="M50 70 C36 70 24 58 22 44 C36 44 46 54 50 70 Z"/><path d="M50 70 C64 70 76 58 78 44 C64 44 54 54 50 70 Z"/></g><circle cx="50" cy="78" r="4.5" fill="#EDB27A"/>',
 }
 WORD = {
@@ -88,7 +88,7 @@ def shot(name, alt, cls='shot', app='nudge'):
 # ── Home ──
 PRODS = [
  ('noggin', 'Save ideas and questions, meet them again, and send next steps to Nudge!', 'Live · v1.0'),
- ('drift', 'Daily check-ins that earn letters to and from fictional pen pals across time.', 'Discovery'),
+ ('drift', 'Write slowly. Feel deeply. A mood journal whose check-ins earn letters to fictional pen pals across time.', 'Live · v0.9'),
  ('aurasync', 'Your local wellness hub, all in one place.', 'Discovery'),
 ]
 home = f'''<main id="work" class="bento">
@@ -96,7 +96,7 @@ home = f'''<main id="work" class="bento">
     <p class="muted" style="font-size:13px">Independent product builder · Behavioral science · Philippines</p>
     <div>
       <h1>Gentle systems for <span class="gold">everyday</span> life.</h1>
-      <p class="lede">I build small, warm tools grounded in psychology and shaped around real habits. Nudge! and Noggin? are live, and two more are in discovery.</p>
+      <p class="lede">I build small, warm tools grounded in psychology and shaped around real habits. Nudge!, Noggin? and Drift. are live, and AuraSync is in discovery.</p>
     </div>
     <div class="row"><a class="btn gold" href="/work/nudge">See my work</a><a class="btn line" href="/contact">Say hello</a></div>
   </section>
@@ -129,7 +129,7 @@ JOBS = [
  ('Customer Support Advisor', '2019 – now', 'Buy It Direct Group, UK (remote) · Amazon, eBay, TikTok and more'),
  ('Course Creator and Online Learning Strategist', '2024 – 2025', 'Self-employed · Kajabi courses, funnels and email automation'),
  ('Customer Service Representative', '2019', '24-7 Intouch · Airbnb account, Resolutions 1'),
- ('Founder, Innova Space', '2026', 'Nudge! (live) · Noggin, Drift and AuraSync in discovery'),
+ ('Founder, Innova Space', '2026', 'Nudge!, Noggin? and Drift. live · AuraSync in discovery'),
 ]
 TOOLS = ['Make.com', 'Airtable', 'Kajabi', 'Google Workspace', 'Microsoft Office', 'Canva', 'Claude · ChatGPT · Gemini']
 about = f'''<main class="tile about">
@@ -289,18 +289,17 @@ DISC = [
   shots=[('home', 'Curiosities · your ideas'), ('wonder', 'Wonderings · with a Still curious? card'), ('detail', 'A thought · next steps ready for Nudge!')],
   progress=[(1, 'Concept, principles and product discovery doc'), (1, 'Bible, design system and mockups for every screen'), (1, 'v1.0 shipped in 8 phases, November 2026'), (1, 'Steps hand off to Nudge!, with one shared passkey'), (0, 'Interviews with people who collect random questions'), (0, 'Quick research with AI (planned; for now, a What I found note)'), (0, 'Test how often Still curious? should appear')],
   qs=['How much should an AI answer say, and how should it show its sources?', 'Is one resurfaced thought a day the right amount?', 'Do people need tags or pins beyond categories and search?']),
- dict(k='drift', tag='A daily check-in with a twist.', stage='Concept',
-  facts=[('Stage', 'Concept and discovery'), ('Platform', 'Planned: mobile-first PWA'), ('Role', 'Research, design, build'), ('Pen pals', 'Fictional characters, never real strangers')],
+ dict(k='drift', tag='Write slowly. Feel deeply. A mood journal with slow mail across time.', stage='Live · v0.9', demo='https://drift.innovaspace.app',
+  facts=[('Stage', 'v0.9 live, November 2026'), ('Platform', 'Installable PWA, offline first'), ('Role', 'Research, design and build'), ('Pen pals', '36 fictional characters, written by AI. Never real strangers')],
   problem='Mood journals ask a lot and give little back, so most people stop within a week. Streaks make every missed day feel like failure.',
   hyp='If a quick check-in earns something to look forward to, like a letter that might arrive, people will keep showing up without streak pressure.',
-  note='Reflection and a letter game, kept separate',
-  how=[('Check in', 'A quick mood check-in, notes optional. Each one earns points.'), ('Drift a letter', 'Spend points to send a letter to the past or the future, on stationery you choose.'), ('Wait and wonder', 'A fictional pen pal may write back, and random letters can arrive. Replies are never guaranteed, so each one feels special.')],
-  feats=[('Quick check-ins', 'Light and fast. No streaks and nothing lost for missed days.'), ('Patterns, not diagnoses', 'Weekly and monthly reflections show what you logged, gently.'), ('Letters through time', 'A cast of fictional correspondents, from a 1700s sailor to someone in the future.'), ('Stationery and keepsakes', 'Paper, ink and wax seals nudge who might reply. Letters can hold small mementos.')],
-  screens=[('Daily check-in', [('title', 'How are you today?'), ('scale',), ('hint', 'Okay · a little tired'), ('input', 'Add a note (optional)', 70), ('go', 'Check in · +5 points')]),
-           ('Write a letter', [('title', 'Drift a letter'), ('chips', ['To the past', 'To the future', 'Blind drift']), ('input', 'Dear friend in another time…', 110), ('hint', 'Stationery: navy ink · wax seal'), ('go', 'Send · 10 points')]),
-           ('Inbox', [('title', 'Inbox'), ('ph', 'A letter has arrived. From the past?', 150), ('card', 'Sealed letter', 'Common · free to open'), ('ghost', 'Open letter')])],
-  progress=[(1, 'Concept, two-system design and principles'), (1, 'Draft points economy and rarity tiers'), (1, 'Mock brand mark'), (0, 'Check-in questions and mood scale'), (0, 'First cast of fictional pen pals and their voices'), (0, 'Playtest letter arrival odds')],
-  qs=['How can analytics show patterns without sounding clinical?', 'How often should letters arrive to keep anticipation fun?', 'Are the point prices balanced against daily check-ins?']),
+  note='Calm by design: no streaks, no guilt, no red counts',
+  how=[('Check in', 'A few taps: mood, energy and one feeling. Notes are optional. Each check-in earns 5 Chronons.'), ('Drift a letter', 'In the Post Office, spend Chronons to send a letter to the past or the future, on stationery you choose.'), ('Wait and wonder', 'Replies land at mail time, days later, or never. Random letters arrive too, about once a week.')],
+  feats=[('Patterns, not diagnoses', 'Mood over time and your week at a glance. Never a score.'), ('Pen pals across time', '36 fictional characters from the past and the future, each with their own voice and closeness.'), ('Stationery and keepsakes', 'Paper, ink, pens and wax seals shape who might reply. Letters can carry mementos for your Keepsake Box.'), ('Letters to future you', 'Write one now and seal it. Read it when it arrives. It stays on your phone.')],
+  ai=('The AI module', 'Claude writes every pen pal letter in the background, in each character’s voice. It only sees the letters you write to them: never your journal, never your letters to future you. Pen pals never diagnose or act as a therapist. If the AI is slow, a hand-written letter goes out instead, so the post never stops.'),
+  shots=[('home', 'Today · check in with a few taps'), ('checkin', 'Check in · mood, energy, feelings, sleep'), ('patterns', 'Patterns · mood over time, never a score')],
+  progress=[(1, 'Bible, pen pal roster and mockups for every screen'), (1, 'v0.1 to v0.9 in 8 phases, November 2026'), (1, 'Post Office: the mail engine, shop, stationery and Keepsake Box'), (1, 'AI module live: Claude writes the letters'), (1, 'Shared Innova Space passkey with Nudge! and Noggin?'), (0, 'Playtest letter timing and Chronon prices'), (0, 'Interviews about journaling habits')],
+  qs=['How often should letters arrive to keep anticipation fun?', 'Are Chronon prices balanced against daily check-ins?', 'How can patterns stay gentle and never feel like a diagnosis?']),
  dict(k='aurasync', tag='Your local wellness hub.', stage='Early concept',
   facts=[('Stage', 'Early concept'), ('Platform', 'Planned: web and mobile'), ('Role', 'Research, design, build'), ('Focus', 'Local discovery, curated')],
   problem='Wellness options are scattered: coaches on social media, events on separate pages, spas on maps, retreats on travel sites. Finding the right fit takes too long.',
@@ -322,8 +321,10 @@ for d in DISC:
     b += pair('The problem', d['problem'], 'Hypothesis', d['hyp'])
     b += steps('How it works', d['note'], [(f'0{i+1}', t, x) for i, (t, x) in enumerate(d['how'])], num=True)
     b += grid4(d['feats'])
+    if d.get('ai'):
+        b += f'<section class="tile dark usp"><p class="label">{E(d["ai"][0])}</p><p style="font-family:var(--sans);font-size:clamp(18px,1.8vw,22px);line-height:1.5">{E(d["ai"][1])}</p></section>'
     if d.get('shots'):
-        b += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens from v1.0 with sample thoughts. Dark mode shows the Supernova theme.</span></div><div class="screens" style="--n:3">'
+        b += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens with sample data. Dark mode shows each app’s dark theme.</span></div><div class="screens" style="--n:3">'
               + ''.join(f'<figure>{shot(n, NAME[k] + " " + c, app=k)}<figcaption>{E(c)}</figcaption></figure>' for n, c in d['shots']) + '</div></section>')
     else:
         b += ('<section class="tile"><div class="sec-head"><h2>Early wireframes</h2><span class="muted" style="font-size:13px">Low fidelity, for testing the flow</span></div><div class="screens" style="--n:3">'
