@@ -87,7 +87,7 @@ def shot(name, alt, cls='shot', app='nudge'):
 
 # ── Home ──
 PRODS = [
- ('noggin', 'Save ideas and questions, meet them again, and send next steps to Nudge!', 'Live · v1.0'),
+ ('noggin', 'Save ideas and questions, meet them again, get an optional AI first step or short answer, and send steps to Nudge!', 'Live · v1.1'),
  ('drift', 'Write slowly. Feel deeply. A mood journal whose check-ins earn letters to fictional pen pals across time.', 'Live · v0.9'),
  ('aurasync', 'Your local wellness hub, all in one place.', 'Discovery'),
 ]
@@ -279,16 +279,17 @@ def wire(blocks):
     return '<div class="wire" aria-hidden="true">' + ''.join(out) + '</div>'
 
 DISC = [
- dict(k='noggin', tag='Stay curious. A place for the thoughts you don’t want to lose.', stage='Live · v1.0', demo='https://noggin.innovaspace.app',
-  facts=[('Stage', 'v1.0 live, November 2026'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Role', 'Research, design and build'), ('Works with', 'Nudge!: steps become tasks, one passkey for both')],
+ dict(k='noggin', tag='Stay curious. A place for the thoughts you don’t want to lose.', stage='Live · v1.1', demo='https://noggin.innovaspace.app',
+  facts=[('Stage', 'v1.1 live, November 2026 (AI helpers)'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Role', 'Research, design and build'), ('Works with', 'Nudge!: steps become tasks, one passkey for both')],
   problem='Curious thoughts arrive when you can’t stop to look them up. They get forgotten, scattered across notes or lost in open tabs.',
   hyp='If saving a thought takes seconds and old ones come back gently, people will return to their curiosity instead of losing it, and act on the ones that matter.',
   note='Calm by design: no points, streaks or red counts',
-  how=[('Catch it', 'Save a Curiosity (an idea) or a Wondering (a question) in seconds. No account needed.'), ('Meet it again', 'Once a day at most, an old thought you haven’t opened comes back as a quiet Still curious? card.'), ('Act on it', 'Break it into next steps and send them to Nudge!, where they become tasks.')],
-  feats=[('Curiosities and Wonderings', 'Ideas and questions get their own homes, so neither gets lost in the other.'), ('Suggested categories', 'Learning, Ideas, Work or Life is picked for you. Change it with one tap.'), ('Still curious?', 'One old thought a day, never more. Open it, snooze it or archive it.'), ('Steps to Nudge!', 'Send next steps as tasks. Signed in, Noggin? shows when each one is done.')],
+  how=[('Catch it', 'Save a Curiosity (an idea) or a Wondering (a question) in seconds. No account needed.'), ('Meet it again', 'Once a day at most, an old thought you haven’t opened comes back as a quiet Still curious? card.'), ('Act on it', 'Break it into next steps, or let the AI helper suggest a first one, and send them to Nudge!, where they become tasks.')],
+  feats=[('Curiosities and Wonderings', 'Ideas and questions get their own homes, so neither gets lost in the other.'), ('Suggested categories', 'Learning, Ideas, Work or Life is picked for you. Change it with one tap.'), ('Still curious?', 'One old thought a day, never more. Open it, snooze it or archive it.'), ('Steps to Nudge!', 'Send next steps as tasks. Signed in, Noggin? shows when each one is done.'), ('AI helpers (optional)', 'A first step for a Curiosity, a short answer for a Wondering. Personal questions get things to weigh, never a verdict.')],
+  ai=('The AI helpers', 'Two optional helpers, off until you switch them on and sign in. Claude suggests one small first step for a Curiosity, or a short answer for a Wondering, in the language you wrote it. Only the thought you’re looking at is sent, with its category: never your notes, other thoughts or your name. Personal questions get two things to weigh and a question back, never a verdict. Answers can be saved to What I found.'),
   shots=[('home', 'Curiosities · your ideas'), ('wonder', 'Wonderings · with a Still curious? card'), ('detail', 'A thought · next steps ready for Nudge!')],
-  progress=[(1, 'Concept, principles and product discovery doc'), (1, 'Bible, design system and mockups for every screen'), (1, 'v1.0 shipped in 8 phases, November 2026'), (1, 'Steps hand off to Nudge!, with one shared passkey'), (0, 'Interviews with people who collect random questions'), (0, 'Quick research with AI (planned; for now, a What I found note)'), (0, 'Test how often Still curious? should appear')],
-  qs=['How much should an AI answer say, and how should it show its sources?', 'Is one resurfaced thought a day the right amount?', 'Do people need tags or pins beyond categories and search?']),
+  progress=[(1, 'Concept, principles and product discovery doc'), (1, 'Bible, design system and mockups for every screen'), (1, 'v1.0 shipped in 8 phases, November 2026'), (1, 'v1.1: optional AI helpers for first steps and short answers'), (1, 'Steps hand off to Nudge!, with one shared passkey'), (0, 'Interviews with people who collect random questions'), (0, 'Test how often Still curious? should appear')],
+  qs=['Do short AI answers help people act, or do they end the curiosity too soon?', 'Is one resurfaced thought a day the right amount?', 'Do people need tags or pins beyond categories and search?']),
  dict(k='drift', tag='Write slowly. Feel deeply. A mood journal with slow mail across time.', stage='Live · v0.9', demo='https://drift.innovaspace.app',
   facts=[('Stage', 'v0.9 live, November 2026'), ('Platform', 'Installable PWA, offline first'), ('Role', 'Research, design and build'), ('Pen pals', '36 fictional characters, written by AI. Never real strangers')],
   problem='Mood journals ask a lot and give little back, so most people stop within a week. Streaks make every missed day feel like failure.',
