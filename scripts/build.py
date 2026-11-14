@@ -124,7 +124,19 @@ home = f'''<main id="work" class="bento">
     <span style="font-size:15px;line-height:1.5">Psychology, e-commerce and a love for systems. Also cats, curating and a good declutter.</span>
     <span class="more"><span>Read more and CV</span><span class="plus" aria-hidden="true">+</span></span>
   </a>
-</main>'''
+</main>
+<section class="tile film-tile" aria-labelledby="film-h">
+  <div class="film">
+    <video preload="none" playsinline poster="https://innovaspace.app/assets/film/poster.webp" aria-label="Innova Space brand film, 35 seconds, with captions"><source src="https://innovaspace.app/assets/film/innova-space-film.mp4" type="video/mp4"></video>
+    <button class="play" type="button" aria-label="Play the Innova Space brand film, 35 seconds, sound on"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg><span>Play · 0:35</span></button>
+  </div>
+  <div class="copy">
+    <p class="eyebrow">Brand film · Innova Space</p>
+    <h2 id="film-h" class="serif">Built for minds that <i>never stop</i>.</h2>
+    <p class="muted">A 35-second animated story of why Innova Space exists, from restless thoughts to a constellation of small, gentle apps.</p>
+    <p class="muted" style="font-size:13px">Concept, script and direction · Chanel Perez</p>
+  </div>
+</section>'''
 page('index.html', 'Chanel Perez · Gentle systems for everyday life', 'Independent product builder with a behavioral-science perspective. Founder of Innova Space, maker of Nudge!, Noggin?, Drift., AuraSync and Dear Me.', home, 'work')
 
 # ── About ──

@@ -40,3 +40,10 @@
       });
   });
 })();
+
+// Brand film: show controls and play on first tap
+document.querySelectorAll('.film').forEach(function (f) {
+  var v = f.querySelector('video'), b = f.querySelector('.play');
+  if (!v || !b) return;
+  b.addEventListener('click', function () { v.controls = true; v.play(); b.hidden = true; });
+});
