@@ -20,9 +20,9 @@ WORD = {
  'noggin': 'Noggin<span class="gold">?</span>',
  'drift': '<i>Drift</i><span class="gold">.</span>',
  'aurasync': 'AuraS<span class="gold">y</span>nc',
- 'dearme': 'Dear <i>Me</i>',
+ 'dearme': 'Dear Me<span class="gold">,</span>',
 }
-NAME = {'nudge': 'Nudge!', 'noggin': 'Noggin?', 'drift': 'Drift.', 'aurasync': 'AuraSync', 'dearme': 'Dear Me'}
+NAME = {'nudge': 'Nudge!', 'noggin': 'Noggin?', 'drift': 'Drift.', 'aurasync': 'AuraSync', 'dearme': 'Dear Me,'}
 
 def icon(k, size):
     vb = '0 0 256 256' if k == 'noggin' else '0 0 100 100'
