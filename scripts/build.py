@@ -321,16 +321,24 @@ DISC = [
   qs=['How does it stay curated instead of becoming another directory?', 'How do coaches and places join, and how is quality checked?', 'Which matters more at first: nearby places or matched coaches?']),
  dict(k='dearme', tag='Self-trust, one kept promise at a time.', stage='Bible and mockups',
   facts=[('Stage', 'Discovery · bible and jar mockups, November 2026'), ('Platform', 'Planned: installable PWA, offline first'), ('Role', 'Research, design and build'), ('Stands alone', 'Self-care, not productivity. No links to the other apps')],
-  problem='When small promises to yourself keep slipping, you stop trusting your own word. Habit apps answer with streaks and red marks, so one missed day turns into shame.',
-  hyp='If every kept promise becomes something you can see, a glowing orb in a jar, people will rebuild self-trust from evidence instead of pressure.',
-  note='Calm by design: no streaks, no overdue, no red marks',
-  how=[('Promise', 'Make one to three small promises to yourself. Few on purpose, so it never becomes a to-do list.'), ('Keep', 'Each kept promise drops a glowing orb into your jar. Twelve orbs fill it.'), ('Look back', 'A full jar is sealed and kept on your shelf, in the style it was filled in.')],
-  feats=[('Evidence, not pressure', 'The jar shows how many promises you kept, never how fast or how many you missed.'), ('Letting go counts', 'Releasing a promise is as valid as keeping it. How long one sat untouched stays hidden.'), ('Jars and orbs', 'Several jar styles, themes and orb shapes. Sealed jars keep the look they were filled in.'), ('Optional AI', 'When a promise is stuck, it asks what makes it hard, never “you have to”. Nothing is added unless you accept it.')],
-  screens=[('Your promises', [('title', 'Dear me,'), ('hint', 'I promise to…'), ('card', 'Drink water before coffee', 'Kept 4 times'), ('card', 'Read 10 pages at night', 'Kept 2 times'), ('go', 'I kept a promise')]),
-           ('The jar', [('title', 'Your jar'), ('ph', 'Jar · 7 of 12 orbs', 150), ('hint', 'Every orb is a promise you kept'), ('ghost', 'Refine or release a promise')]),
-           ('The shelf', [('title', 'Your shelf'), ('card', 'Jar 2 · Moonstone', 'Sealed · 12 orbs'), ('card', 'Jar 1 · Classic', 'Sealed · 12 orbs'), ('hint', 'Past jars keep the theme they were sealed in')])],
+  problem='Many people call themselves lazy or procrastinators, feel stuck, and start to believe that’s who they are for good. Usually the promise was just too big, or it no longer fits them. Streaks and deadlines then add guilt and shame on top.',
+  hyp='Being stuck is a sign of where it’s hard, not proof you can’t. If people keep promises small enough to win, and see every win pile up in a jar, they will start to trust themselves again.',
+  note='No deadlines, no streaks, no overdue, no red marks',
+  how=[('Promise', 'Make one to three small promises to yourself. There’s no timeline for when.'), ('Keep', 'Each kept promise drops a glowing orb into your jar. A small win is still a win.'), ('Shrink it', 'If a promise is big and hasn’t moved in a while, the optional AI suggests a smaller version, again and again until it’s doable.'), ('Refine or release', 'If it no longer fits you, reshape it or let it go. Both are part of trusting yourself.')],
+  feats=[('A small win is a win', 'Big or tiny, a kept promise counts the same. The jar shows what you kept, never what you missed.'), ('No guilt, no timeline', 'No due dates, no overdue. How long a promise sat untouched is never shown to you.'), ('Refine or release', 'Change a promise that no longer fits, or let it go to make space for a new one.'), ('The jar as evidence', 'Twelve orbs fill a jar, and sealed jars line your shelf: proof that piles up over time.')],
+  ai=('The AI helper', 'Optional and off until you turn it on. It looks only at your promise, notices when one is big and hasn’t moved in a while, and asks what makes it hard. Then it suggests a smaller version until you can do it. It never says “you have to”, never shows how long a promise waited, and nothing changes unless you accept it.'),
+  science=[('Bandura, 1977', 'Self-efficacy', 'Mastery experiences, doing the thing yourself, are the strongest source of belief that you can.', 'Every kept promise is a mastery experience, and the orb keeps a record of it.'),
+           ('Bandura and Schunk, 1981', 'Micro-commitments', 'Small, near goals built self-efficacy and interest faster than one distant goal.', 'Promises stay small, and the AI shrinks a heavy one into a step you can win.'),
+           ('Weick, 1984; Amabile and Kramer, 2011', 'Small wins', 'Visible progress, even small, keeps motivation going more than anything else at work.', 'The jar makes every small win visible and lets them pile up.'),
+           ('Weiner, 1985', 'Attribution', '“I’m lazy” is a fixed, personal label. Seeing a cause you can change keeps hope and effort alive.', 'The question is always where it’s hard, never what’s wrong with you.'),
+           ('Wohl, Pychyl and Bennett, 2010', 'Self-forgiveness', 'Students who forgave themselves for procrastinating procrastinated less before the next exam.', 'No overdue, no red marks, no guilt for a promise that waited.'),
+           ('Wrosch and colleagues, 2003', 'Letting go', 'Letting go of goals that no longer fit, and taking up new ones, was linked to better well-being.', 'Refine and Release are part of self-trust, not failure.')],
+  goal='The goal is to not need it. Over time you trust your own word without writing it down, because the evidence is already there. Dear Me is just a start, to help people believe they can.',
+  screens=[('Your promises', [('title', 'Dear me,'), ('hint', 'I promise to…'), ('card', 'Go to the gym 5 times a week', 'Want to make it smaller?'), ('card', 'Read 10 pages at night', 'Kept 2 times'), ('go', 'I kept a promise')]),
+           ('Shrink it', [('title', 'What makes it hard?'), ('chips', ['Too big', 'No time', 'No energy', 'Not for me now']), ('card', 'A smaller version', 'Go to the gym once this week'), ('go', 'Use this promise'), ('ghost', 'Keep mine')]),
+           ('The jar', [('title', 'Your jar'), ('ph', 'Jar · 7 of 12 orbs', 150), ('hint', 'Every orb is a promise you kept'), ('ghost', 'Refine or release a promise')])],
   progress=[(1, 'Concept: kept promises become orbs in a jar'), (1, 'Principles and Bible v1.0 started'), (1, 'Jar and orb mockups, 12 orbs per jar'), (1, 'A working Classic-jar test'), (1, 'App icon and Plum Midnight palette locked'), (0, 'Mockups of every screen, then the build'), (0, 'Interviews about promises people make to themselves')],
-  qs=['Does a jar of twelve feel reachable, or too slow?', 'How can a stuck promise get help without feeling like a nag?', 'What makes someone open a self-care app on a hard day?']),
+  qs=['How small is small enough for a first win?', 'How can the AI help with a stuck promise without feeling like a nag?', 'Does seeing the jar fill help people trust themselves more over time?']),
 ]
 for d in DISC:
     k = d['k']
@@ -342,6 +350,11 @@ for d in DISC:
     b += grid4(d['feats'])
     if d.get('ai'):
         b += f'<section class="tile dark usp"><p class="label">{E(d["ai"][0])}</p><p style="font-family:var(--sans);font-size:clamp(18px,1.8vw,22px);line-height:1.5">{E(d["ai"][1])}</p></section>'
+    if d.get('science'):
+        b += ('<section class="tile"><div class="sec-head"><h2>The science behind it</h2><span class="muted" style="font-size:13px">Behavioral psychology, with Bandura’s self-efficacy at the center</span></div><div class="science">'
+              + ''.join(f'<div><span class="k">{E(w)}</span><b>{E(t)}</b><span>{E(f)}</span><i>{E(u)}</i></div>' for w, t, f, u in d['science']) + '</div></section>')
+    if d.get('goal'):
+        b += f'<section class="tile dark usp"><p class="label">Where it leads</p><p>{E(d["goal"])}</p></section>'
     if d.get('shots'):
         b += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens with sample data. Dark mode shows each app’s dark theme.</span></div><div class="screens" style="--n:3">'
               + ''.join(f'<figure>{shot(n, NAME[k] + " " + c, app=k)}<figcaption>{E(c)}</figcaption></figure>' for n, c in d['shots']) + '</div></section>')

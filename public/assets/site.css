@@ -271,3 +271,13 @@ footer.foot { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 .prod.half p { font-size: 12.5px; line-height: 1.35; }
 .prod.half .cta { margin: 0; font-size: 18px; }
 @media (max-width: 1024px) { .prod.half { min-height: 92px; } }
+
+/* Science grid (case studies) */
+.science { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 24px; }
+.science > div { display: flex; flex-direction: column; gap: 8px; border-top: 2px solid var(--line); padding-top: 14px; }
+.science .k { font-size: 12px; font-weight: 600; color: var(--muted); }
+.science b { font-size: 17px; font-weight: 600; }
+.science span:not(.k) { font-size: 14px; line-height: 1.5; color: var(--muted); }
+.science i { font-style: normal; font-size: 14px; line-height: 1.5; color: var(--accent); }
+@media (max-width: 1024px) { .science { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .science { grid-template-columns: 1fr; } }
