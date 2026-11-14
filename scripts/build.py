@@ -10,17 +10,19 @@ GITHUB = 'https://github.com/chnlprz'
 
 ICON = {
  'nudge': '<rect width="100" height="100" rx="22.5" fill="#5e3449"/><g fill="none" stroke="#f3e9ec" stroke-width="5.5"><rect x="25" y="25" width="22" height="22" rx="6"/><rect x="53" y="25" width="22" height="22" rx="6"/><rect x="25" y="53" width="22" height="22" rx="6"/></g><g transform="rotate(14 66 66)"><rect x="56" y="56" width="22" height="22" rx="6" fill="#e0946f"/></g>',
- 'noggin': '<rect width="256" height="256" rx="58" fill="#f6f1e7"/><path d="M91 95 C94 47 162 48 164 94 C166 119 128 122 128 153" fill="none" stroke="#0b0a09" stroke-width="16" stroke-linecap="round"/><circle cx="128" cy="192" r="15" fill="#efb94f"/>',
+ 'noggin': '<rect width="256" height="256" rx="58" fill="#0b0a09"/><rect x="2" y="2" width="252" height="252" rx="56" fill="none" stroke="#3a3428" stroke-width="4"/><path d="M91 95 C94 47 162 48 164 94 C166 119 128 122 128 153" fill="none" stroke="#f6f1e7" stroke-width="22" stroke-linecap="round"/><circle cx="128" cy="192" r="18" fill="#efb94f"/>',
  'drift': '<rect width="100" height="100" rx="22" fill="#1a1410"/><rect x="1" y="1" width="98" height="98" rx="21" fill="none" stroke="#6b5236" stroke-width="2"/><path d="M14 60 H86 L72 77 H28 Z" fill="#c49a5c"/><path d="M50 18 L50 60 L23 60 Z" fill="#e2c38f"/><path d="M53 27 L53 60 L75 60 Z" fill="#a67a42"/>',
  'aurasync': '<rect width="100" height="100" rx="22.5" fill="#3D6656"/><g fill="none" stroke="#F1EDE4" stroke-width="5.5" stroke-linejoin="round"><path d="M50 70 C40 58 40 38 50 26 C60 38 60 58 50 70 Z"/><path d="M50 70 C36 70 24 58 22 44 C36 44 46 54 50 70 Z"/><path d="M50 70 C64 70 76 58 78 44 C64 44 54 54 50 70 Z"/></g><circle cx="50" cy="78" r="4.5" fill="#EDB27A"/>',
+ 'dearme': '<defs><radialGradient id="dmB" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#341556"/><stop offset="1" stop-color="#1a0a2a"/></radialGradient><radialGradient id="dmG"><stop offset="0" stop-color="#ff8fb8" stop-opacity=".6"/><stop offset="1" stop-color="#ff8fb8" stop-opacity="0"/></radialGradient><clipPath id="dmC"><polygon points="40,32 60,32 72,40 72,75 68,79 32,79 28,75 28,40"/></clipPath></defs><rect width="100" height="100" rx="22.5" fill="url(#dmB)"/><polygon points="40,27 60,27 60,32 72,40 72,75 68,79 32,79 28,75 28,40 40,32" fill="#efb94f" fill-opacity=".10"/><circle cx="50" cy="62" r="19" fill="url(#dmG)" clip-path="url(#dmC)"/><polyline points="32,44 32,70" fill="none" stroke="#ffffff" stroke-opacity=".5" stroke-width="1.6" stroke-linecap="round"/><polygon points="40,27 60,27 60,32 72,40 72,75 68,79 32,79 28,75 28,40 40,32" fill="none" stroke="#efb94f" stroke-width="1.6" stroke-linejoin="round"/><polygon points="38,18 62,18 60.5,31 39.5,31" fill="#e9b85a"/><line x1="38.6" y1="22" x2="61.4" y2="22" stroke="#000" stroke-opacity=".12" stroke-width=".8"/><path d="M50 73 C36 64 33 57 35.5 52.5 C38 48 44 48.5 50 54.5 C56 48.5 62 48 64.5 52.5 C67 57 64 64 50 73 Z" fill="#ff8fb8"/>',
 }
 WORD = {
  'nudge': 'Nudge<span class="gold">!</span>',
  'noggin': 'Noggin<span class="gold">?</span>',
  'drift': '<i>Drift</i><span class="gold">.</span>',
  'aurasync': 'AuraS<span class="gold">y</span>nc',
+ 'dearme': 'Dear <i>Me</i>',
 }
-NAME = {'nudge': 'Nudge!', 'noggin': 'Noggin?', 'drift': 'Drift.', 'aurasync': 'AuraSync'}
+NAME = {'nudge': 'Nudge!', 'noggin': 'Noggin?', 'drift': 'Drift.', 'aurasync': 'AuraSync', 'dearme': 'Dear Me'}
 
 def icon(k, size):
     vb = '0 0 256 256' if k == 'noggin' else '0 0 100 100'
@@ -87,22 +89,22 @@ def shot(name, alt, cls='shot', app='nudge'):
 
 # ── Home ──
 PRODS = [
- ('noggin', 'Save ideas and questions, meet them again, get an optional AI first step or short answer, and send steps to Nudge!', 'Live · v1.1'),
+ ('noggin', 'Save ideas and questions, typed or spoken. Optional AI helps with a first step or a short answer, and steps go to Nudge!', 'Live · v1.2'),
  ('drift', 'Write slowly. Feel deeply. A mood journal whose check-ins earn letters to fictional pen pals across time.', 'Live · v0.9'),
- ('aurasync', 'Your local wellness hub, all in one place.', 'Discovery'),
-]
+ ]
+SOON = [('aurasync', 'Local wellness hub'), ('dearme', 'Self-trust, one kept promise at a time')]
 home = f'''<main id="work" class="bento">
   <section class="tile intro">
     <p class="muted" style="font-size:13px">Independent product builder · Behavioral science · Philippines</p>
     <div>
       <h1>Gentle systems for <span class="gold">everyday</span> life.</h1>
-      <p class="lede">I build small, warm tools grounded in psychology and shaped around real habits. Nudge!, Noggin? and Drift. are live, and AuraSync is in discovery.</p>
+      <p class="lede">I build small, warm tools grounded in psychology and shaped around real habits. Nudge!, Noggin? and Drift. are live, and AuraSync and Dear Me are in discovery.</p>
     </div>
     <div class="row"><a class="btn gold" href="/work/nudge">See my work</a><a class="btn line" href="/contact">Say hello</a></div>
   </section>
   <section class="tile feat">
     <div class="copy">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">{icon('nudge', 48)}<span class="muted" style="font-size:13px;display:inline-flex;align-items:center;gap:8px"><i class="dot"></i>Featured · Live v2.9</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">{icon('nudge', 48)}<span class="muted" style="font-size:13px;display:inline-flex;align-items:center;gap:8px"><i class="dot"></i>Featured · Live v2.16</span></div>
       <div>
         <h2 class="wordmark">{WORD['nudge']}</h2>
         <p class="muted" style="font-size:21px;margin-top:10px">Your day, gently.</p>
@@ -116,20 +118,21 @@ home = f'''<main id="work" class="bento">
     <div class="head">{icon(k, 40)}<span>{'<i class="dot"></i> ' if st.startswith('Live') else ''}{st}</span></div>
     <div><h3>{WORD[k]}</h3><p>{E(d)}</p><span class="cta">Explore case study →</span></div>
   </a>
-''' for k, d, st in PRODS) + '''  <a class="tile about-tile" href="/about">
+''' for k, d, st in PRODS) + '  <div class="split">' + ''.join(f'''<a class="tile prod half" href="/work/{k}">{icon(k, 40)}<div><h3>{WORD[k]}</h3><p>Discovery · {E(d)}</p></div><span class="cta" aria-hidden="true">→</span></a>''' for k, d in SOON) + '''</div>
+  <a class="tile about-tile" href="/about">
     <span style="font-size:12px;opacity:.75">About me</span>
     <span style="font-size:15px;line-height:1.5">Psychology, e-commerce and a love for systems. Also cats, curating and a good declutter.</span>
     <span class="more"><span>Read more and CV</span><span class="plus" aria-hidden="true">+</span></span>
   </a>
 </main>'''
-page('index.html', 'Chanel Perez · Gentle systems for everyday life', 'Independent product builder with a behavioral-science perspective. Founder of Innova Space, maker of Nudge!, Noggin, Drift and AuraSync.', home, 'work')
+page('index.html', 'Chanel Perez · Gentle systems for everyday life', 'Independent product builder with a behavioral-science perspective. Founder of Innova Space, maker of Nudge!, Noggin?, Drift., AuraSync and Dear Me.', home, 'work')
 
 # ── About ──
 JOBS = [
  ('Customer Support Advisor', '2019 – now', 'Buy It Direct Group, UK (remote) · Amazon, eBay, TikTok and more'),
  ('Course Creator and Online Learning Strategist', '2024 – 2025', 'Self-employed · Kajabi courses, funnels and email automation'),
  ('Customer Service Representative', '2019', '24-7 Intouch · Airbnb account, Resolutions 1'),
- ('Founder, Innova Space', '2026', 'Nudge!, Noggin? and Drift. live · AuraSync in discovery'),
+ ('Founder, Innova Space', '2026', 'Nudge!, Noggin? and Drift. live · AuraSync and Dear Me in discovery'),
 ]
 TOOLS = ['Make.com', 'Airtable', 'Kajabi', 'Google Workspace', 'Microsoft Office', 'Canva', 'Claude · ChatGPT · Gemini']
 about = f'''<main class="tile about">
@@ -208,13 +211,13 @@ def pair(a_label, a, b_label, b):
 
 def steps(title, note, items, num=False, now_last=False):
     lis = ''.join(f'<li{" class=\"now\"" if now_last and i == len(items) - 1 else ""}><span class="k">{E(k)}</span><b>{E(t)}</b><span>{E(d)}</span></li>' for i, (k, t, d) in enumerate(items))
-    return f'<section class="tile"><div class="sec-head"><h2>{title}</h2><span class="muted" style="font-size:13px">{E(note)}</span></div><ol class="steps{" num" if num else ""}" style="--n:{len(items)}">{lis}</ol></section>'
+    return f'<section class="tile"><div class="sec-head"><h2>{title}</h2><span class="muted" style="font-size:13px">{E(note)}</span></div><ol class="steps{" num" if num else ""}" style="--n:{len(items) if len(items) <= 6 else -(-len(items) // 2)}">{lis}</ol></section>'
 
 def grid4(items):
     return '<div class="grid4">' + ''.join(f'<div class="tile"><b>{E(a)}</b><span>{E(b)}</span></div>' for a, b in items) + '</div>'
 
-nudge = hero('nudge', 'Your day, gently. A priority tracker built for the tired version of you.', '<i class="dot"></i>Live · v2.9',
-  [('Role', 'Research, design and build. Solo, with AI as pair programmer'), ('Timeline', 'v1.0 to v2.9, November 2026'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Stack', 'TypeScript, IndexedDB, Cloudflare Workers and D1')],
+nudge = hero('nudge', 'Your day, gently. A priority tracker built for the tired version of you.', '<i class="dot"></i>Live · v2.16',
+  [('Role', 'Research, design and build. Solo, with AI as pair programmer'), ('Timeline', 'v1.0 to v2.16, November 2026'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Stack', 'TypeScript, IndexedDB, Cloudflare Workers and D1')],
   '<a class="btn gold" href="https://nudge.innovaspace.app">Open Nudge! ↗</a>')
 nudge += pair('The problem', 'Task apps expect you to organize while you capture. On tired days that’s too much, so the app gets abandoned and missed tasks start to feel like failure.',
               'What Nudge! does', 'Capture first and sort later. The right task rises at the right time, and effort is rewarded instead of streaks, so a slow week never costs you progress.')
@@ -225,7 +228,9 @@ nudge += steps('Process', 'From a single HTML file to a synced app', [
   ('v2.2', 'Sync', 'Passkey sign-in, sync between devices and push reminders.'),
   ('v2.3–2.5', 'Polish', 'Supernova and Aurora skies, a warmer welcome, haptics.'),
   ('v2.6–2.7', 'New home, reliable reminders', 'nudge.innovaspace.app, in-app feedback, reminders within a minute.'),
-  ('v2.9', 'Works with Noggin?', 'Steps sent from Noggin? arrive as tasks, and their status flows back.')], now_last=True)
+  ('v2.8–2.9', 'Rewards and Noggin?', 'Redeem any amount with undo and a points history. Steps from Noggin? arrive as tasks.'),
+  ('v2.10–2.14', 'Your day, your clock', 'Day starts at (4 AM by default) for night owls. Labs beta: say or type a batch and AI sorts it.'),
+  ('v2.15–2.16', 'Testing with others', 'Auto-update, a calmer welcome and an opt-in usage report for beta testers.')], now_last=True)
 nudge += f'''<div class="pair">
   <article class="tile feature"><div><p class="label">Best feature · Task Banner</p><h3>What to do now, and what’s next.</h3><p>Home shows one task at a time. Order it your way, by the Matrix, or by Task Demand (light tasks first, or heavy first on a strong day). Timed tasks rise about an hour before they start.</p></div>
     <div class="mini" aria-hidden="true"><span class="eyebrow" style="font-size:10px">Now</span><div class="now"><b style="font-size:14px">Reply to supplier</b><span style="font-size:11px;opacity:.8">in 45 min · 15 min</span></div><span class="eyebrow" style="font-size:10px">Up next</span><div class="box">Thesis edits · heavy</div><div class="box">Piano practice</div></div></article>
@@ -253,13 +258,14 @@ nudge += '''<section class="tile"><div class="sec-head"><h2>What I tested and le
   <div><b>The briefing notice stayed after I tapped it.</b><span>It should clear and take me to tomorrow.</span><i>2.7: it dismisses and opens Upcoming, from the push too.</i></div>
   <div><b>Lists didn’t behave the same.</b><span>Upcoming items weren’t tappable, and points showed in some lists only.</span><i>2.7: tap any Upcoming item for details; points show in every list and the calendar, and hide when points are off.</i></div>
   <div><b>Long names got cut off in the banner.</b><span>The most important task was the one I couldn’t read.</span><i>2.7: long names scroll gently.</i></div>
-  <div class="open"><b>Still open.</b><span>A confirmation before redeeming a reward, a full points history, sorting in the Matrix and Task Demand, where Anytime tasks belong, and a fair bonus for finishing dated tasks early.</span><i>In progress for the next release.</i></div>
+  <div><b>Rewards and sorting had gaps.</b><span>No way to redeem a custom amount or see a points history; Matrix and Task Demand couldn’t be sorted, and Anytime tasks had no clear home.</span><i>2.8: redeem any amount with a note and undo, a History with a running balance, an early-finish bonus, sorting in Matrix and Task Demand, and a place for Anytime tasks.</i></div>
 </div></section>'''
+nudge += '<section class="tile dark usp"><p class="label">Labs (beta) · Just say it</p><p style="font-family:var(--sans);font-size:clamp(18px,1.8vw,22px);line-height:1.5">Say or type a batch of tasks the way you’d think them. Whisper on Workers AI hears it, and Claude reads repeats, days (Filipino day names too), due dates and effort, then sorts each line. Every task arrives as a card you check before it’s added. Signed in, with a daily limit while it’s in beta.</p></section>'
 nudge += '<section class="tile dark usp"><p class="label">Why it’s different</p><p>Built on behavior science, not willpower. It plans for low-energy days instead of punishing them.</p></section>'
 nudge += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens from v2.6–2.7 with sample data. Dark mode shows the Supernova theme.</span></div><div class="screens">'
           + ''.join(f'<figure>{shot(n, "Nudge! " + c)}<figcaption>{E(c)}</figcaption></figure>' for n, c in [('home', 'Home · Task Banner, widgets and today'), ('matrix', 'Matrix · sorted for today'), ('avoided', 'Analytics · avoided tasks and B=MAP'), ('rank', 'Rank · constellations that only go up')])
           + '</div></section>')
-nudge += '''<div class="next"><section class="tile"><p class="label">What’s next</p><p style="font-size:18px;margin-top:12px">Speak a batch of tasks and let AI suggest where they go, confirmed in one tap like the Sort flow. Then a native app for the App Store.</p></section>
+nudge += '''<div class="next"><section class="tile"><p class="label">What’s next</p><p style="font-size:18px;margin-top:12px">Learn from beta testers with the opt-in usage report, take Just say it out of Labs, then a native app for the App Store.</p></section>
 <a class="tile" href="https://nudge.innovaspace.app"><span>Try it</span><span>nudge.innovaspace.app ↗</span></a></div>'''
 page('work/nudge.html', 'Nudge! case study · Chanel Perez', 'How Nudge! went from a single HTML file to a synced, behavior-science task app.', nudge, back=True)
 
@@ -279,16 +285,16 @@ def wire(blocks):
     return '<div class="wire" aria-hidden="true">' + ''.join(out) + '</div>'
 
 DISC = [
- dict(k='noggin', tag='Stay curious. A place for the thoughts you don’t want to lose.', stage='Live · v1.1', demo='https://noggin.innovaspace.app',
-  facts=[('Stage', 'v1.1 live, November 2026 (AI helpers)'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Role', 'Research, design and build'), ('Works with', 'Nudge!: steps become tasks, one passkey for both')],
+ dict(k='noggin', tag='Stay curious. A place for the thoughts you don’t want to lose.', stage='Live · v1.2', demo='https://noggin.innovaspace.app',
+  facts=[('Stage', 'v1.2 live, November 2026 (AI helpers, Say it)'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Role', 'Research, design and build'), ('Works with', 'Nudge!: steps become tasks, one passkey for both')],
   problem='Curious thoughts arrive when you can’t stop to look them up. They get forgotten, scattered across notes or lost in open tabs.',
   hyp='If saving a thought takes seconds and old ones come back gently, people will return to their curiosity instead of losing it, and act on the ones that matter.',
   note='Calm by design: no points, streaks or red counts',
-  how=[('Catch it', 'Save a Curiosity (an idea) or a Wondering (a question) in seconds. No account needed.'), ('Meet it again', 'Once a day at most, an old thought you haven’t opened comes back as a quiet Still curious? card.'), ('Act on it', 'Break it into next steps, or let the AI helper suggest a first one, and send them to Nudge!, where they become tasks.')],
-  feats=[('Curiosities and Wonderings', 'Ideas and questions get their own homes, so neither gets lost in the other.'), ('Suggested categories', 'Learning, Ideas, Work or Life is picked for you. Change it with one tap.'), ('Still curious?', 'One old thought a day, never more. Open it, snooze it or archive it.'), ('Steps to Nudge!', 'Send next steps as tasks. Signed in, Noggin? shows when each one is done.'), ('AI helpers (optional)', 'A first step for a Curiosity, a short answer for a Wondering. Personal questions get things to weigh, never a verdict.')],
-  ai=('The AI helpers', 'Two optional helpers, off until you switch them on and sign in. Claude suggests one small first step for a Curiosity, or a short answer for a Wondering, in the language you wrote it. Only the thought you’re looking at is sent, with its category: never your notes, other thoughts or your name. Personal questions get two things to weigh and a question back, never a verdict. Answers can be saved to What I found.'),
+  how=[('Catch it', 'Save a Curiosity (an idea) or a Wondering (a question) in seconds, or just say it. No account needed.'), ('Meet it again', 'Once a day at most, an old thought you haven’t opened comes back as a quiet Still curious? card.'), ('Act on it', 'Break it into next steps, or let the AI helper suggest a first one, and send them to Nudge!, where they become tasks.')],
+  feats=[('Curiosities and Wonderings', 'Ideas and questions get their own homes, so neither gets lost in the other.'), ('Still curious?', 'One old thought a day, never more. Open it, snooze it or archive it.'), ('Steps to Nudge!', 'Send next steps as tasks. Signed in, Noggin? shows when each one is done.'), ('AI helpers and Say it (beta)', 'A first step for a Curiosity, a short answer for a Wondering. Or speak a few thoughts and check each one before it’s saved.')],
+  ai=('The AI helpers', 'Two optional helpers, off until you switch them on and sign in. Claude suggests one small first step for a Curiosity, or a short answer for a Wondering, in the language you wrote it. Only the thought you’re looking at is sent, with its category: never your notes, other thoughts or your name. Personal questions get two things to weigh and a question back, never a verdict. Answers can be saved to What I found. In Labs (beta), Say it turns up to two minutes of speech into thoughts you check before they’re saved.'),
   shots=[('home', 'Curiosities · your ideas'), ('wonder', 'Wonderings · with a Still curious? card'), ('detail', 'A thought · next steps ready for Nudge!'), ('aistep', 'AI helper · a first step for a Curiosity'), ('aianswer', 'AI helper · a short answer for a Wondering'), ('aipersonal', 'AI helper · things to weigh, never a verdict')],
-  progress=[(1, 'Concept, principles and product discovery doc'), (1, 'Bible, design system and mockups for every screen'), (1, 'v1.0 shipped in 8 phases, November 2026'), (1, 'v1.1: optional AI helpers for first steps and short answers'), (1, 'Steps hand off to Nudge!, with one shared passkey'), (0, 'Interviews with people who collect random questions'), (0, 'Test how often Still curious? should appear')],
+  progress=[(1, 'Concept, principles and product discovery doc'), (1, 'Bible, design system and mockups for every screen'), (1, 'v1.0 shipped in 8 phases, November 2026'), (1, 'v1.1: optional AI helpers for first steps and short answers'), (1, 'v1.2: Say it (Labs beta), a new app icon and a usage report for testers'), (1, 'Steps hand off to Nudge!, with one shared passkey'), (0, 'Interviews with people who collect random questions'), (0, 'Test how often Still curious? should appear')],
   qs=['Do short AI answers help people act, or do they end the curiosity too soon?', 'Is one resurfaced thought a day the right amount?', 'Do people need tags or pins beyond categories and search?']),
  dict(k='drift', tag='Write slowly. Feel deeply. A mood journal with slow mail across time.', stage='Live · v0.9', demo='https://drift.innovaspace.app',
   facts=[('Stage', 'v0.9 live, November 2026'), ('Platform', 'Installable PWA, offline first'), ('Role', 'Research, design and build'), ('Pen pals', '36 fictional characters, written by AI. Never real strangers')],
@@ -313,6 +319,18 @@ DISC = [
            ('Coach profile', [('ph', 'Photo', 110), ('title', 'Breathwork coach'), ('hint', 'Sessions: 1-on-1 · small group'), ('card', 'Next session', 'Thursday · 6 pm'), ('ghost', 'Save'), ('go', 'Book a session')])],
   progress=[(1, 'Concept and feature list'), (1, 'Name and tagline chosen'), (1, 'Mock brand mark'), (0, 'Interviews with wellness seekers and providers'), (0, 'Map local supply in one area'), (0, 'Prototype the survey and discovery flow')],
   qs=['How does it stay curated instead of becoming another directory?', 'How do coaches and places join, and how is quality checked?', 'Which matters more at first: nearby places or matched coaches?']),
+ dict(k='dearme', tag='Self-trust, one kept promise at a time.', stage='Bible and mockups',
+  facts=[('Stage', 'Discovery · bible and jar mockups, November 2026'), ('Platform', 'Planned: installable PWA, offline first'), ('Role', 'Research, design and build'), ('Stands alone', 'Self-care, not productivity. No links to the other apps')],
+  problem='When small promises to yourself keep slipping, you stop trusting your own word. Habit apps answer with streaks and red marks, so one missed day turns into shame.',
+  hyp='If every kept promise becomes something you can see, a glowing orb in a jar, people will rebuild self-trust from evidence instead of pressure.',
+  note='Calm by design: no streaks, no overdue, no red marks',
+  how=[('Promise', 'Make one to three small promises to yourself. Few on purpose, so it never becomes a to-do list.'), ('Keep', 'Each kept promise drops a glowing orb into your jar. Twelve orbs fill it.'), ('Look back', 'A full jar is sealed and kept on your shelf, in the style it was filled in.')],
+  feats=[('Evidence, not pressure', 'The jar shows how many promises you kept, never how fast or how many you missed.'), ('Letting go counts', 'Releasing a promise is as valid as keeping it. How long one sat untouched stays hidden.'), ('Jars and orbs', 'Several jar styles, themes and orb shapes. Sealed jars keep the look they were filled in.'), ('Optional AI', 'When a promise is stuck, it asks what makes it hard, never “you have to”. Nothing is added unless you accept it.')],
+  screens=[('Your promises', [('title', 'Dear me,'), ('hint', 'I promise to…'), ('card', 'Drink water before coffee', 'Kept 4 times'), ('card', 'Read 10 pages at night', 'Kept 2 times'), ('go', 'I kept a promise')]),
+           ('The jar', [('title', 'Your jar'), ('ph', 'Jar · 7 of 12 orbs', 150), ('hint', 'Every orb is a promise you kept'), ('ghost', 'Refine or release a promise')]),
+           ('The shelf', [('title', 'Your shelf'), ('card', 'Jar 2 · Moonstone', 'Sealed · 12 orbs'), ('card', 'Jar 1 · Classic', 'Sealed · 12 orbs'), ('hint', 'Past jars keep the theme they were sealed in')])],
+  progress=[(1, 'Concept: kept promises become orbs in a jar'), (1, 'Principles and Bible v1.0 started'), (1, 'Jar and orb mockups, 12 orbs per jar'), (1, 'A working Classic-jar test'), (1, 'App icon and Plum Midnight palette locked'), (0, 'Mockups of every screen, then the build'), (0, 'Interviews about promises people make to themselves')],
+  qs=['Does a jar of twelve feel reachable, or too slow?', 'How can a stuck promise get help without feeling like a nag?', 'What makes someone open a self-care app on a hard day?']),
 ]
 for d in DISC:
     k = d['k']
