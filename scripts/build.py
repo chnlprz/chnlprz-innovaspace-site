@@ -216,6 +216,10 @@ def steps(title, note, items, num=False, now_last=False):
 def grid4(items):
     return '<div class="grid4">' + ''.join(f'<div class="tile"><b>{E(a)}</b><span>{E(b)}</span></div>' for a, b in items) + '</div>'
 
+def science(items, note):
+    return ('<section class="tile"><div class="sec-head"><h2>The science behind it</h2><span class="muted" style="font-size:13px">' + E(note) + '</span></div><div class="science">'
+            + ''.join(f'<div><span class="k">{E(w)}</span><b>{E(t)}</b><span>{E(f)}</span><i>{E(u)}</i></div>' for w, t, f, u in items) + '</div></section>')
+
 nudge = hero('nudge', 'Your day, gently. A priority tracker built for the tired version of you.', '<i class="dot"></i>Live · v2.16',
   [('Role', 'Research, design and build. Solo, with AI as pair programmer'), ('Timeline', 'v1.0 to v2.16, November 2026'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Stack', 'TypeScript, IndexedDB, Cloudflare Workers and D1')],
   '<a class="btn gold" href="https://nudge.innovaspace.app">Open Nudge! ↗</a>')
@@ -241,6 +245,11 @@ nudge += grid4([('Capture first, sort later', 'Fast capture to Unsorted with an 
                 ('Effort points, up only', '1 point per 15 minutes. Constellation levels never drop. Stardust and peso rewards.'),
                 ('Energy aware', 'A daily energy check-in, plus an optional cycle-based estimate. Your answer always wins.'),
                 ('Offline, synced if you want', 'Works without an account. Passkey sign-in syncs devices and sends reminders.')])
+nudge += science([
+  ('Masicampo and Baumeister, 2011', 'Open loops', 'Unfinished tasks keep popping into your head, but just making a plan for them, not finishing them, quiets the noise.', 'Capture first and sort later: a task out of your head is a task you can stop carrying.'),
+  ('Gollwitzer and Sheeran, 2006', 'Implementation intentions', 'Across 94 studies, deciding when and where you’ll act gave a medium-to-large boost to actually doing it.', 'Timed tasks rise about an hour before they start, and reminders arrive on time.'),
+  ('Deci and Ryan, 2000', 'Self-determination', 'People stay motivated when they feel in control and capable, not pushed.', 'Every layer is optional, and points reward effort, so progress always feels earned.')],
+  'Behavior science, picked for what each feature does')
 nudge += steps('Decisions that changed', 'What I changed after using v1 every day, and why', [
   ('Rebuild', 'Start over, on paper first', 'v1 grew as one HTML file. For 2.0 I wrote every rule and the data model down first, then rebuilt in reviewed phases.'),
   ('Rewards', 'Effort, not completion', '1 point per 15 minutes of effort, and multi-day tasks are checked off per day, so big tasks still pay off along the way.'),
@@ -293,6 +302,9 @@ DISC = [
   how=[('Catch it', 'Save a Curiosity (an idea) or a Wondering (a question) in seconds, or just say it. No account needed.'), ('Meet it again', 'Once a day at most, an old thought you haven’t opened comes back as a quiet Still curious? card.'), ('Act on it', 'Break it into next steps, or let the AI helper suggest a first one, and send them to Nudge!, where they become tasks.')],
   feats=[('Curiosities and Wonderings', 'Ideas and questions get their own homes, so neither gets lost in the other.'), ('Still curious?', 'One old thought a day, never more. Open it, snooze it or archive it.'), ('Steps to Nudge!', 'Send next steps as tasks. Signed in, Noggin? shows when each one is done.'), ('AI helpers and Say it (beta)', 'A first step for a Curiosity, a short answer for a Wondering. Or speak a few thoughts and check each one before it’s saved.')],
   ai=('The AI helpers', 'Two optional helpers, off until you switch them on and sign in. Claude suggests one small first step for a Curiosity, or a short answer for a Wondering, in the language you wrote it. Only the thought you’re looking at is sent, with its category: never your notes, other thoughts or your name. Personal questions get two things to weigh and a question back, never a verdict. Answers can be saved to What I found. In Labs (beta), Say it turns up to two minutes of speech into thoughts you check before they’re saved.'),
+  science=[('Risko and Gilbert, 2016', 'Cognitive offloading', 'Moving what you need to remember out of your head and into the world frees up attention for what you’re doing now.', 'Save a thought in seconds, typed or spoken, and let it go.'),
+           ('Gruber, Gelman and Ranganath, 2014', 'Curiosity helps memory', 'People remembered answers they were curious about better, even a day later, and curiosity lit up the brain’s reward circuit.', 'Wonderings can get a short answer while the question is still fresh.'),
+           ('Cepeda and colleagues, 2006', 'The spacing effect', 'Across hundreds of studies, information you come back to after a gap is remembered better than information crammed at once.', 'Still curious? brings one old thought back each day.')],
   shots=[('home', 'Curiosities · your ideas'), ('wonder', 'Wonderings · with a Still curious? card'), ('detail', 'A thought · next steps ready for Nudge!'), ('aistep', 'AI helper · a first step for a Curiosity'), ('aianswer', 'AI helper · a short answer for a Wondering'), ('aipersonal', 'AI helper · things to weigh, never a verdict')],
   progress=[(1, 'Concept, principles and product discovery doc'), (1, 'Bible, design system and mockups for every screen'), (1, 'v1.0 shipped in 8 phases, November 2026'), (1, 'v1.1: optional AI helpers for first steps and short answers'), (1, 'v1.2: Say it (Labs beta), a new app icon and a usage report for testers'), (1, 'Steps hand off to Nudge!, with one shared passkey'), (0, 'Interviews with people who collect random questions'), (0, 'Test how often Still curious? should appear')],
   qs=['Do short AI answers help people act, or do they end the curiosity too soon?', 'Is one resurfaced thought a day the right amount?', 'Do people need tags or pins beyond categories and search?']),
@@ -304,6 +316,9 @@ DISC = [
   how=[('Check in', 'A few taps: mood, energy and one feeling. Notes are optional. Each check-in earns 5 Chronons.'), ('Drift a letter', 'In the Post Office, spend Chronons to send a letter to the past or the future, on stationery you choose.'), ('Wait and wonder', 'Replies land at mail time, days later, or never. Random letters arrive too, about once a week.')],
   feats=[('Patterns, not diagnoses', 'Mood over time and your week at a glance. Never a score.'), ('Pen pals across time', '36 fictional characters from the past and the future, each with their own voice and closeness.'), ('Stationery and keepsakes', 'Paper, ink, pens and wax seals shape who might reply. Letters can carry mementos for your Keepsake Box.'), ('Letters to future you', 'Write one now and seal it. Read it when it arrives. It stays on your phone.')],
   ai=('The AI module', 'Claude writes every pen pal letter in the background, in each character’s voice. It only sees the letters you write to them: never your journal, never your letters to future you. Pen pals never diagnose or act as a therapist. If the AI is slow, a hand-written letter goes out instead, so the post never stops.'),
+  science=[('Lieberman and colleagues, 2007', 'Affect labeling', 'Putting a feeling into words calmed the brain’s alarm response compared with just looking at it.', 'Every check-in asks you to name one feeling.'),
+           ('Pennebaker and Beall, 1986', 'Expressive writing', 'Writing about thoughts and feelings for a few short sessions was followed by fewer health center visits months later.', 'Notes and letters give feelings somewhere to go.'),
+           ('Shen, Fishbach and Hsee, 2015', 'Motivating uncertainty', 'People worked harder for a reward that might be $1 or $2 than for a sure $2, because not knowing made the chase exciting.', 'Replies arrive days later or not at all, and random letters surprise you.')],
   shots=[('home', 'Today · check in with a few taps'), ('checkin', 'Check in · mood, energy, feelings, sleep'), ('patterns', 'Patterns · mood over time, never a score')],
   progress=[(1, 'Bible, pen pal roster and mockups for every screen'), (1, 'v0.1 to v0.9 in 8 phases, November 2026'), (1, 'Post Office: the mail engine, shop, stationery and Keepsake Box'), (1, 'AI module live: Claude writes the letters'), (1, 'Shared Innova Space passkey with Nudge! and Noggin?'), (0, 'Playtest letter timing and Chronon prices'), (0, 'Interviews about journaling habits')],
   qs=['How often should letters arrive to keep anticipation fun?', 'Are Chronon prices balanced against daily check-ins?', 'How can patterns stay gentle and never feel like a diagnosis?']),
@@ -327,6 +342,7 @@ DISC = [
   how=[('Promise', 'Make one to three small promises to yourself. There’s no timeline for when.'), ('Keep', 'Each kept promise drops a glowing orb into your jar. A small win is still a win.'), ('Shrink it', 'If a promise is big and hasn’t moved in a while, the optional AI suggests a smaller version, again and again until it’s doable.'), ('Refine or release', 'If it no longer fits you, reshape it or let it go. Both are part of trusting yourself.')],
   feats=[('A small win is a win', 'Big or tiny, a kept promise counts the same. The jar shows what you kept, never what you missed.'), ('No guilt, no timeline', 'No due dates, no overdue. How long a promise sat untouched is never shown to you.'), ('Refine or release', 'Change a promise that no longer fits, or let it go to make space for a new one.'), ('The jar as evidence', 'Twelve orbs fill a jar, and sealed jars line your shelf: proof that piles up over time.')],
   ai=('The AI helper', 'Optional and off until you turn it on. It looks only at your promise, notices when one is big and hasn’t moved in a while, and asks what makes it hard. Then it suggests a smaller version until you can do it. It never says “you have to”, never shows how long a promise waited, and nothing changes unless you accept it.'),
+  science_note='Behavioral psychology, with Bandura’s self-efficacy at the center',
   science=[('Bandura, 1977', 'Self-efficacy', 'Mastery experiences, doing the thing yourself, are the strongest source of belief that you can.', 'Every kept promise is a mastery experience, and the orb keeps a record of it.'),
            ('Bandura and Schunk, 1981', 'Micro-commitments', 'Small, near goals built self-efficacy and interest faster than one distant goal.', 'Promises stay small, and the AI shrinks a heavy one into a step you can win.'),
            ('Weick, 1984; Amabile and Kramer, 2011', 'Small wins', 'Visible progress, even small, keeps motivation going more than anything else at work.', 'The jar makes every small win visible and lets them pile up.'),
@@ -351,8 +367,7 @@ for d in DISC:
     if d.get('ai'):
         b += f'<section class="tile dark usp"><p class="label">{E(d["ai"][0])}</p><p style="font-family:var(--sans);font-size:clamp(18px,1.8vw,22px);line-height:1.5">{E(d["ai"][1])}</p></section>'
     if d.get('science'):
-        b += ('<section class="tile"><div class="sec-head"><h2>The science behind it</h2><span class="muted" style="font-size:13px">Behavioral psychology, with Bandura’s self-efficacy at the center</span></div><div class="science">'
-              + ''.join(f'<div><span class="k">{E(w)}</span><b>{E(t)}</b><span>{E(f)}</span><i>{E(u)}</i></div>' for w, t, f, u in d['science']) + '</div></section>')
+        b += science(d['science'], d.get('science_note', 'The research each feature stands on'))
     if d.get('goal'):
         b += f'<section class="tile dark usp"><p class="label">Where it leads</p><p>{E(d["goal"])}</p></section>'
     if d.get('shots'):
