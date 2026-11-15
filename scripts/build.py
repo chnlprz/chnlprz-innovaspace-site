@@ -69,7 +69,7 @@ def page(path, title, desc, body, current='', back=False):
 <div class="page">
 <header class="top">
   {left}
-  <nav class="nav" aria-label="Main">{nav}<a class="is-pill" href="https://innovaspace.app">Innova Space ↗</a><button type="button" class="theme-btn" aria-label="Switch theme">{MOON}{SUN}</button></nav>
+  <nav class="nav" aria-label="Main">{nav}<a class="is-pill" href="https://innovaspace.app">Innova Space</a><button type="button" class="theme-btn" aria-label="Switch theme">{MOON}{SUN}</button></nav>
 </header>
 {body}
 <footer class="foot"><span>© 2026 <a href="https://innovaspace.app">Innova Space ↗</a></span><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></footer>
@@ -99,7 +99,7 @@ home = f'''<main id="work" class="bento">
       <h1>Gentle systems for <span class="gold">everyday</span> life.</h1>
       <p class="lede">I build small, warm tools grounded in psychology and shaped around real habits. Nudge!, Noggin?, Drift. and Dear Me are live, and AuraSync is in discovery.</p>
     </div>
-    <div class="row"><a class="btn gold" href="/work/nudge">See my work</a><a class="btn line" href="/contact">Say hello</a><a class="btn line is-hero" href="https://innovaspace.app">Innova Space ↗</a></div>
+    <div class="row"><a class="btn gold" href="/work/nudge">See my work</a><a class="btn line" href="/contact">Say hello</a><a class="btn line is-hero" href="https://innovaspace.app">Innova Space</a></div>
   </section>
   <section class="tile feat">
     <div class="copy">
