@@ -89,16 +89,16 @@ def shot(name, alt, cls='shot', app='nudge'):
 
 # ── Home ──
 PRODS = [
- ('noggin', 'Save ideas and questions, typed or spoken. Optional AI helps with a first step or a short answer, and steps go to Nudge!', 'Live · v1.2'),
+ ('noggin', 'Save ideas and questions, typed or spoken. Optional AI helps with a first step or a short answer, and steps go to Nudge!', 'Live · v1.3'),
  ('drift', 'Write slowly. Feel deeply. A mood journal whose check-ins earn letters to fictional pen pals across time.', 'Live · v0.9'),
  ]
-SOON = [('aurasync', 'Local wellness hub'), ('dearme', 'Self-trust, one kept promise at a time')]
+SOON = [('dearme', 'Self-trust, one kept promise at a time', 'Live · v0.10'), ('aurasync', 'Local wellness hub', 'Discovery')]
 home = f'''<main id="work" class="bento">
   <section class="tile intro">
     <p class="muted" style="font-size:13px">Independent product builder · Behavioral science · Philippines</p>
     <div>
       <h1>Gentle systems for <span class="gold">everyday</span> life.</h1>
-      <p class="lede">I build small, warm tools grounded in psychology and shaped around real habits. Nudge!, Noggin? and Drift. are live, and AuraSync and Dear Me are in discovery.</p>
+      <p class="lede">I build small, warm tools grounded in psychology and shaped around real habits. Nudge!, Noggin?, Drift. and Dear Me are live, and AuraSync is in discovery.</p>
     </div>
     <div class="row"><a class="btn gold" href="/work/nudge">See my work</a><a class="btn line" href="/contact">Say hello</a></div>
   </section>
@@ -118,7 +118,7 @@ home = f'''<main id="work" class="bento">
     <div class="head">{icon(k, 40)}<span>{'<i class="dot"></i> ' if st.startswith('Live') else ''}{st}</span></div>
     <div><h3>{WORD[k]}</h3><p>{E(d)}</p><span class="cta">Explore case study →</span></div>
   </a>
-''' for k, d, st in PRODS) + '  <div class="split">' + ''.join(f'''<a class="tile prod half" href="/work/{k}">{icon(k, 40)}<div><h3>{WORD[k]}</h3><p>Discovery · {E(d)}</p></div><span class="cta" aria-hidden="true">→</span></a>''' for k, d in SOON) + '''</div>
+''' for k, d, st in PRODS) + '  <div class="split">' + ''.join(f'''<a class="tile prod half" href="/work/{k}">{icon(k, 40)}<div><h3>{WORD[k]}</h3><p>{E(st)} · {E(d)}</p></div><span class="cta" aria-hidden="true">→</span></a>''' for k, d, st in SOON) + '''</div>
   <a class="tile about-tile" href="/about">
     <span style="font-size:12px;opacity:.75">About me</span>
     <span style="font-size:15px;line-height:1.5">Psychology, e-commerce and a love for systems. Also cats, curating and a good declutter.</span>
@@ -144,7 +144,7 @@ JOBS = [
  ('Customer Support Advisor', '2019 – now', 'Buy It Direct Group, UK (remote) · Amazon, eBay, TikTok and more'),
  ('Course Creator and Online Learning Strategist', '2024 – 2025', 'Self-employed · Kajabi courses, funnels and email automation'),
  ('Customer Service Representative', '2019', '24-7 Intouch · Airbnb account, Resolutions 1'),
- ('Founder, Innova Space', '2026', 'Nudge!, Noggin? and Drift. live · AuraSync and Dear Me in discovery'),
+ ('Founder, Innova Space', '2026', 'Nudge!, Noggin?, Drift. and Dear Me, live · AuraSync in discovery'),
 ]
 TOOLS = ['Make.com', 'Airtable', 'Kajabi', 'Google Workspace', 'Microsoft Office', 'Canva', 'Claude · ChatGPT · Gemini']
 about = f'''<main class="tile about">
@@ -306,8 +306,8 @@ def wire(blocks):
     return '<div class="wire" aria-hidden="true">' + ''.join(out) + '</div>'
 
 DISC = [
- dict(k='noggin', tag='Stay curious. A place for the thoughts you don’t want to lose.', stage='Live · v1.2', demo='https://noggin.innovaspace.app',
-  facts=[('Stage', 'v1.2 live, November 2026 (AI helpers, Say it)'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Role', 'Research, design and build'), ('Works with', 'Nudge!: steps become tasks, one passkey for both')],
+ dict(k='noggin', tag='Stay curious. A place for the thoughts you don’t want to lose.', stage='Live · v1.3', demo='https://noggin.innovaspace.app',
+  facts=[('Stage', 'v1.3 live, November 2026 (AI helpers, Say it)'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Role', 'Research, design and build'), ('Works with', 'Nudge!: steps become tasks, one passkey for both')],
   problem='Curious thoughts arrive when you can’t stop to look them up. They get forgotten, scattered across notes or lost in open tabs.',
   hyp='If saving a thought takes seconds and old ones come back gently, people will return to their curiosity instead of losing it, and act on the ones that matter.',
   note='Calm by design: no points, streaks or red counts',
@@ -346,14 +346,14 @@ DISC = [
            ('Coach profile', [('ph', 'Photo', 110), ('title', 'Breathwork coach'), ('hint', 'Sessions: 1-on-1 · small group'), ('card', 'Next session', 'Thursday · 6 pm'), ('ghost', 'Save'), ('go', 'Book a session')])],
   progress=[(1, 'Concept and feature list'), (1, 'Name and tagline chosen'), (1, 'Mock brand mark'), (0, 'Interviews with wellness seekers and providers'), (0, 'Map local supply in one area'), (0, 'Prototype the survey and discovery flow')],
   qs=['How does it stay curated instead of becoming another directory?', 'How do coaches and places join, and how is quality checked?', 'Which matters more at first: nearby places or matched coaches?']),
- dict(k='dearme', tag='Self-trust, one kept promise at a time.', stage='Bible and mockups',
-  facts=[('Stage', 'Discovery · bible and jar mockups, November 2026'), ('Platform', 'Planned: installable PWA, offline first'), ('Role', 'Research, design and build'), ('Stands alone', 'Self-care, not productivity. No links to the other apps')],
+ dict(k='dearme', tag='Self-trust, one kept promise at a time.', stage='Live · v0.10', demo='https://dearme.innovaspace.app',
+  facts=[('Stage', 'v0.10 live, November 2026'), ('Platform', 'Installable PWA, offline first; no account needed for the jar'), ('Role', 'Research, design and build'), ('Stands alone', 'Self-care, not productivity. Only the passkey is shared')],
   problem='Many people call themselves lazy or procrastinators, feel stuck, and start to believe that’s who they are for good. Usually the promise was just too big, or it no longer fits them. Streaks and deadlines then add guilt and shame on top.',
   hyp='Being stuck is a sign of where it’s hard, not proof you can’t. If people keep promises small enough to win, and see every win pile up in a jar, they will start to trust themselves again.',
   note='No deadlines, no streaks, no overdue, no red marks',
-  how=[('Promise', 'Make one to three small promises to yourself. There’s no timeline for when.'), ('Keep', 'Each kept promise drops a glowing orb into your jar. A small win is still a win.'), ('Shrink it', 'If a promise is big and hasn’t moved in a while, the optional AI suggests a smaller version, again and again until it’s doable.'), ('Refine or release', 'If it no longer fits you, reshape it or let it go. Both are part of trusting yourself.')],
+  how=[('Promise', 'Make one to three small promises to yourself. There’s no timeline for when.'), ('Keep', 'Each kept promise drops a glowing orb into your jar. A small win is still a win.'), ('Make it smaller', 'If a promise feels heavy, Gentle Help, the optional AI, asks what’s in the way and offers two or three smaller versions you could keep today.'), ('Refine or release', 'If it no longer fits you, reshape it or set it down. Released promises are choices, never failures.')],
   feats=[('A small win is a win', 'Big or tiny, a kept promise counts the same. The jar shows what you kept, never what you missed.'), ('No guilt, no timeline', 'No due dates, no overdue. How long a promise sat untouched is never shown to you.'), ('Refine or release', 'Change a promise that no longer fits, or let it go to make space for a new one.'), ('The jar as evidence', 'Twelve orbs fill a jar, and sealed jars line your shelf: proof that piles up over time.')],
-  ai=('The AI helper', 'Optional and off until you turn it on. It looks only at your promise, notices when one is big and hasn’t moved in a while, and asks what makes it hard. Then it suggests a smaller version until you can do it. It never says “you have to”, never shows how long a promise waited, and nothing changes unless you accept it.'),
+  ai=('Gentle Help', 'Optional, off until you allow it. It looks only at the promise in front of you, asks what’s in the way, and offers two or three smaller versions you could keep today. Never “should” or “lazy”, never stored. If a promise hints at self-harm, it shows hotlines instead.'),
   science_note='Behavioral psychology, with Bandura’s self-efficacy at the center',
   science=[('Bandura, 1977', 'Self-efficacy', 'Mastery experiences, doing the thing yourself, are the strongest source of belief that you can.', 'Every kept promise is a mastery experience, and the orb keeps a record of it.'),
            ('Bandura and Schunk, 1981', 'Micro-commitments', 'Small, near goals built self-efficacy and interest faster than one distant goal.', 'Promises stay small, and the AI shrinks a heavy one into a step you can win.'),
@@ -362,10 +362,8 @@ DISC = [
            ('Wohl, Pychyl and Bennett, 2010', 'Self-forgiveness', 'Students who forgave themselves for procrastinating procrastinated less before the next exam.', 'No overdue, no red marks, no guilt for a promise that waited.'),
            ('Wrosch and colleagues, 2003', 'Letting go', 'Letting go of goals that no longer fit, and taking up new ones, was linked to better well-being.', 'Refine and Release are part of self-trust, not failure.')],
   goal='The goal is to not need it. Over time you trust your own word without writing it down, because the evidence is already there. Dear Me is just a start, to help people believe they can.',
-  screens=[('Your promises', [('title', 'Dear me,'), ('hint', 'I promise to…'), ('card', 'Go to the gym 5 times a week', 'Want to make it smaller?'), ('card', 'Read 10 pages at night', 'Kept 2 times'), ('go', 'I kept a promise')]),
-           ('Shrink it', [('title', 'What makes it hard?'), ('chips', ['Too big', 'No time', 'No energy', 'Not for me now']), ('card', 'A smaller version', 'Go to the gym once this week'), ('go', 'Use this promise'), ('ghost', 'Keep mine')]),
-           ('The jar', [('title', 'Your jar'), ('ph', 'Jar · 7 of 12 orbs', 150), ('hint', 'Every orb is a promise you kept'), ('ghost', 'Refine or release a promise')])],
-  progress=[(1, 'Concept: kept promises become orbs in a jar'), (1, 'Principles and Bible v1.0 started'), (1, 'Jar and orb mockups, 12 orbs per jar'), (1, 'A working Classic-jar test'), (1, 'App icon and Plum Midnight palette locked'), (0, 'Mockups of every screen, then the build'), (0, 'Interviews about promises people make to themselves')],
+  shots=[('home', 'Home · the jar and today’s promises'), ('options', 'A promise · keep, edit, refine or release'), ('shelf', 'Your shelf · sealed jars, exactly as they were')],
+  progress=[(1, 'Concept, principles and Bible v1.0'), (1, 'Jar engine with real physics, 12 orbs per jar'), (1, 'Promises: hold to keep, refine, release'), (1, 'Sealing, the shelf and levels that unlock new jars'), (1, 'Gentle check-ins, offline safety check and hotlines'), (1, 'Passkey sign-in, sync and evening reminders'), (1, 'Gentle Help (AI) · v0.10 live'), (0, 'Learn from the first testers')],
   qs=['How small is small enough for a first win?', 'How can the AI help with a stuck promise without feeling like a nag?', 'Does seeing the jar fill help people trust themselves more over time?']),
 ]
 for d in DISC:
