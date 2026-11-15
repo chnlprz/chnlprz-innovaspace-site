@@ -20,7 +20,7 @@ a:hover { opacity: .78; }
 img { max-width: 100%; display: block; }
 h1, h2, h3 { margin: 0; text-wrap: balance; }
 p { margin: 0; }
-.serif { font-family: var(--serif); font-weight: 400; }
+.serif { font-family: var(--serif); -webkit-text-stroke: .008em currentColor; paint-order: stroke fill; font-weight: 500; }
 .muted { color: var(--muted); }
 .gold { color: var(--accent); }
 .label { font-size: 13px; font-weight: 500; color: var(--accent); }
@@ -58,13 +58,13 @@ a.tile:hover { opacity: 1; transform: translateY(-2px); border-color: var(--acce
 .intro p.lede { font-size: 17px; color: var(--muted); max-width: 440px; margin-top: 18px; }
 .feat { grid-column: span 2; grid-row: span 2; padding: 40px; display: flex; gap: 32px; overflow: hidden; }
 .feat .copy { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; min-width: 0; }
-.wordmark { font-family: var(--serif); font-weight: 400; letter-spacing: -.015em; line-height: 1; }
+.wordmark { font-family: var(--serif); -webkit-text-stroke: .008em currentColor; paint-order: stroke fill; font-weight: 500; letter-spacing: -.015em; line-height: 1; }
 .feat .wordmark { font-size: clamp(48px, 4.6vw, 64px); }
 .feat .shot { width: min(230px, 38%); flex: none; align-self: center; }
 .shot img { width: 100%; height: auto; border-radius: 30px; border: 5px solid var(--ink); }
 .prod { flex-direction: column; justify-content: space-between; gap: 16px; padding: 24px; }
 .prod .head { display: flex; justify-content: space-between; align-items: flex-start; font-size: 12px; color: var(--muted); }
-.prod h3 { font-family: var(--serif); font-weight: 400; font-size: 32px; letter-spacing: -.015em; margin-bottom: 6px; }
+.prod h3 { font-family: var(--serif); -webkit-text-stroke: .008em currentColor; paint-order: stroke fill; font-weight: 500; font-size: 32px; letter-spacing: -.015em; margin-bottom: 6px; }
 .prod p { font-size: 14px; line-height: 1.45; color: var(--muted); }
 .about-tile { flex-direction: column; justify-content: space-between; gap: 14px; padding: 24px; background: var(--feature); color: var(--on-feature); border-color: transparent; }
 .about-tile .more { display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
@@ -138,7 +138,7 @@ ol.steps span:last-child { font-size: 14px; line-height: 1.5; color: var(--muted
 .mini .box { border-radius: 12px; border: 1px solid var(--line); padding: 10px; }
 .mini .tip { border-radius: 12px; background: var(--soft); padding: 10px; line-height: 1.45; }
 .usp { padding: 40px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: center; }
-.usp p:not(.label) { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); line-height: 1.25; }
+.usp p:not(.label) { font-family: var(--serif); -webkit-text-stroke: .008em currentColor; paint-order: stroke fill; font-weight: 500; font-size: clamp(26px, 3vw, 34px); line-height: 1.25; }
 .screens { display: grid; grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); gap: 20px; }
 .screens figure { margin: 0; display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center; font-size: 13px; color: var(--muted); }
 .screens .shot { width: 100%; max-width: 240px; }
@@ -213,7 +213,7 @@ footer.foot { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 
 /* Header IS mark (Bodoni, medium) */
 .brand { display: inline-flex; align-items: center; gap: 10px; }
-.is-mark { font-family: var(--serif); font-weight: 500; font-variation-settings: 'opsz' 24; font-size: 26px; line-height: 1; letter-spacing: 0; color: var(--ink); }
+.is-mark { font-family: var(--serif); -webkit-text-stroke: .008em currentColor; paint-order: stroke fill; font-weight: 500; font-variation-settings: 'opsz' 24; font-size: 26px; line-height: 1; letter-spacing: 0; color: var(--ink); }
 .is-mark b { font-weight: 500; color: var(--accent); margin-left: .03em; }
 .brand { white-space: nowrap; }
 @media (max-width: 680px) { .brand > span:last-child { display: none; } }
@@ -258,7 +258,7 @@ footer.foot { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 /* Brand film tile (always dark, like the film) */
 .film-tile { margin-top: 16px; padding: 0; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); background: #0B0A09; color: #F3ECE0; border-color: #221E17; }
 .film-tile .copy { padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
-.film-tile h2 { margin: 0; font-family: var(--serif); font-weight: 500; font-size: clamp(30px, 3vw, 44px); line-height: 1.08; }
+.film-tile h2 { margin: 0; font-family: var(--serif); -webkit-text-stroke: .008em currentColor; paint-order: stroke fill; font-weight: 500; font-size: clamp(30px, 3vw, 44px); line-height: 1.08; }
 .film-tile .muted, .film-tile .eyebrow { color: #A89F92; margin: 0; }
 .film { position: relative; background: #000; aspect-ratio: 16 / 9; }
 .film video { width: 100%; height: 100%; display: block; object-fit: cover; }
