@@ -37,14 +37,13 @@ def page(path, title, desc, body, current='', back=False):
                   for key, href, label in [('work', '/#work', 'Work'), ('about', '/about', 'About'), ('contact', '/contact', 'Contact')])
     left = '<a class="muted" href="/" style="font-size:14px">← All work</a>' if back else '<a class="brand" href="/"><span class="is-mark" aria-hidden="true">I<b>S</b></span>Chanel Perez <span>· Innova Space</span></a>'
     doc = f'''<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
-<meta name="theme-color" content="#F4F0E8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0A09" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0B0A09">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -60,7 +59,6 @@ def page(path, title, desc, body, current='', back=False):
 <meta property="og:image:alt" content="Chanel Perez portfolio. Gentle systems for everyday life. Innova Space.">
 <meta name="twitter:card" content="summary">
 <meta name="author" content="Chanel Perez">
-<script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
 <link rel="preload" href="/assets/fonts/bodoni-moda-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/site.css">
@@ -69,7 +67,7 @@ def page(path, title, desc, body, current='', back=False):
 <div class="page">
 <header class="top">
   {left}
-  <nav class="nav" aria-label="Main">{nav}<a class="is-pill" href="https://innovaspace.app">Innova Space</a><button type="button" class="theme-btn" aria-label="Switch theme">{MOON}{SUN}</button></nav>
+  <nav class="nav" aria-label="Main">{nav}<a class="is-pill" href="https://innovaspace.app">Innova Space</a></nav>
 </header>
 {body}
 <footer class="foot"><span>© 2026 <a href="https://innovaspace.app">Innova Space ↗</a></span><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></footer>
@@ -282,7 +280,7 @@ nudge += '''<section class="tile"><div class="sec-head"><h2>What I tested and le
 </div></section>'''
 nudge += '<section class="tile dark usp"><p class="label">Labs (beta) · Just say it</p><p style="font-family:var(--sans);font-size:clamp(18px,1.8vw,22px);line-height:1.5">Say or type a batch of tasks the way you’d think them. Whisper on Workers AI hears it, and Claude reads repeats, days (Filipino day names too), due dates and effort, then sorts each line. Every task arrives as a card you check before it’s added. Signed in, with a daily limit while it’s in beta.</p></section>'
 nudge += '<section class="tile dark usp"><p class="label">Why it’s different</p><p>Built on behavior science, not willpower. It plans for low-energy days instead of punishing them.</p></section>'
-nudge += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens from v2.6–2.7 with sample data. Dark mode shows the Supernova theme.</span></div><div class="screens">'
+nudge += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens from v2.6–2.7 with sample data. Shown in the Supernova theme.</span></div><div class="screens">'
           + ''.join(f'<figure>{shot(n, "Nudge! " + c)}<figcaption>{E(c)}</figcaption></figure>' for n, c in [('home', 'Home · Task Banner, widgets and today'), ('matrix', 'Matrix · sorted for today'), ('avoided', 'Analytics · avoided tasks and B=MAP'), ('rank', 'Rank · constellations that only go up')])
           + '</div></section>')
 nudge += '''<div class="next"><section class="tile"><p class="label">What’s next</p><p style="font-size:18px;margin-top:12px">Learn from beta testers with the opt-in usage report, take Just say it out of Labs, then a native app for the App Store.</p></section>
@@ -380,7 +378,7 @@ for d in DISC:
     if d.get('goal'):
         b += f'<section class="tile dark usp"><p class="label">Where it leads</p><p>{E(d["goal"])}</p></section>'
     if d.get('shots'):
-        b += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens with sample data. Dark mode shows each app’s dark theme.</span></div><div class="screens" style="--n:3">'
+        b += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span class="muted" style="font-size:13px">Real screens with sample data. Shown in each app’s dark theme.</span></div><div class="screens" style="--n:3">'
               + ''.join(f'<figure>{shot(n, NAME[k] + " " + c, app=k)}<figcaption>{E(c)}</figcaption></figure>' for n, c in d['shots']) + '</div></section>')
     else:
         b += ('<section class="tile"><div class="sec-head"><h2>Early wireframes</h2><span class="muted" style="font-size:13px">Low fidelity, for testing the flow</span></div><div class="screens" style="--n:3">'

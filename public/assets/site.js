@@ -1,21 +1,4 @@
-// Theme: follows the device until you pick one; your pick is remembered on this browser.
 (function () {
-  var root = document.documentElement;
-  var btn = document.querySelector('.theme-btn');
-  function current() {
-    var t = root.getAttribute('data-theme');
-    if (t) return t;
-    return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  function label() { if (btn) btn.setAttribute('aria-label', current() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'); }
-  label();
-  if (btn) btn.addEventListener('click', function () {
-    var next = current() === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-    label();
-  });
-
   // Contact form: sends to Innova Space without opening an email app.
   var form = document.getElementById('contact-form');
   if (!form) return;
