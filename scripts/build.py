@@ -109,6 +109,11 @@ PRODS = [
  ('drift', 'Write slowly. Feel deeply. A mood journal whose check-ins earn letters to fictional pen pals across time.', 'Live · v0.9'),
  ]
 SOON = [('dearme', 'Self-trust, one kept promise at a time', 'Live · v0.10'), ('aurasync', 'Local wellness hub', 'Discovery')]
+DEVS = {'nudge': [('Phone', 1), ('Tablet', 1), ('Computer', 1)], 'noggin': [('Phone', 1), ('Tablet', 0), ('Computer', 0)],
+        'drift': [('Phone', 1)], 'dearme': [('Phone', 1)]}
+def devs(k):
+    if k not in DEVS: return ''
+    return ('<span class="devs" aria-label="Made for">' + ''.join(f'<span class="dev{"" if full else " part"}"{"" if full else " title=\'Works, layout polish coming\'"}>{d}</span>' for d, full in DEVS[k]) + '</span>')
 home = f'''<main id="work" class="bento">
   <section class="tile intro">
     <p class="muted" style="font-size:13px">Independent product builder · Behavioral science · Philippines</p>
@@ -125,6 +130,7 @@ home = f'''<main id="work" class="bento">
         <h2 class="wordmark">{WORD['nudge']}</h2>
         <p class="muted" style="font-size:21px;margin-top:10px">Your day, gently.</p>
         <p class="muted" style="font-size:15px;margin-top:12px">A priority tracker for the tired version of you. Capture first, sort later, and progress that never drops.</p>
+        <div style="margin-top:14px">{devs('nudge')}</div>
       </div>
       <div class="row" style="gap:20px;font-weight:500"><a href="/work/nudge">Case study →</a><a class="gold" href="https://nudge.innovaspace.app" target="_blank" rel="noopener">Open app ↗</a></div>
     </div>
@@ -132,9 +138,9 @@ home = f'''<main id="work" class="bento">
   </section>
 ''' + ''.join(f'''  <a class="tile prod" href="/work/{k}">
     <div class="head">{icon(k, 40)}<span>{'<i class="dot"></i> ' if st.startswith('Live') else ''}{st}</span></div>
-    <div><h3>{WORD[k]}</h3><p>{E(d)}</p><span class="cta">Explore case study →</span></div>
+    <div><h3>{WORD[k]}</h3><p>{E(d)}</p>{devs(k)}<span class="cta">Explore case study →</span></div>
   </a>
-''' for k, d, st in PRODS) + '  <div class="split">' + ''.join(f'''<a class="tile prod half" href="/work/{k}">{icon(k, 40)}<div><h3>{WORD[k]}</h3><p>{E(st)} · {E(d)}</p></div><span class="cta" aria-hidden="true">→</span></a>''' for k, d, st in SOON) + '''</div>
+''' for k, d, st in PRODS) + '  <div class="split">' + ''.join(f'''<a class="tile prod half" href="/work/{k}">{icon(k, 40)}<div><h3>{WORD[k]}</h3><p>{E(st)} · {E(d)}</p>{devs(k)}</div><span class="cta" aria-hidden="true">→</span></a>''' for k, d, st in SOON) + '''</div>
   <a class="tile about-tile" href="/about">
     <span style="font-size:12px;opacity:.75">About me</span>
     <span style="font-size:15px;line-height:1.5">Psychology, e-commerce and a love for systems. Also cats, curating and a good declutter.</span>
