@@ -126,7 +126,7 @@ home = f'''<main id="work" class="bento">
         <p class="muted" style="font-size:21px;margin-top:10px">Your day, gently.</p>
         <p class="muted" style="font-size:15px;margin-top:12px">A priority tracker for the tired version of you. Capture first, sort later, and progress that never drops.</p>
       </div>
-      <div class="row" style="gap:20px;font-weight:500"><a href="/work/nudge">Case study →</a><a class="gold" href="https://nudge.innovaspace.app">Open app ↗</a></div>
+      <div class="row" style="gap:20px;font-weight:500"><a href="/work/nudge">Case study →</a><a class="gold" href="https://nudge.innovaspace.app" target="_blank" rel="noopener">Open app ↗</a></div>
     </div>
     {shot('home', 'Nudge! home screen with the Task Banner')}
   </section>
@@ -250,7 +250,7 @@ def science(items, note):
 
 nudge = hero('nudge', 'Your day, gently. A priority tracker built for the tired version of you.', '<i class="dot"></i>Live · v2.16',
   [('Role', 'Research, design and build. Solo, with AI as pair programmer'), ('Timeline', 'v1.0 to v2.16, November 2026'), ('Platform', 'Installable PWA, offline first, phone and desktop'), ('Stack', 'TypeScript, IndexedDB, Cloudflare Workers and D1')],
-  '<a class="btn gold" href="https://nudge.innovaspace.app">Open Nudge! ↗</a>')
+  '<a class="btn gold" href="https://nudge.innovaspace.app" target="_blank" rel="noopener">Open Nudge! ↗</a>')
 nudge += pair('The problem', 'Task apps expect you to organize while you capture. On tired days that’s too much, so the app gets abandoned and missed tasks start to feel like failure.',
               'What Nudge! does', 'Capture first and sort later. The right task rises at the right time, and effort is rewarded instead of streaks, so a slow week never costs you progress.')
 nudge += steps('Process', 'From a single HTML file to a synced app', [
@@ -303,7 +303,7 @@ nudge += ('<section class="tile"><div class="sec-head"><h2>Screens</h2><span cla
           + ''.join(f'<figure>{shot(n, "Nudge! " + c)}<figcaption>{E(c)}</figcaption></figure>' for n, c in [('home', 'Home · Task Banner, widgets and today'), ('matrix', 'Matrix · sorted for today'), ('avoided', 'Analytics · avoided tasks and B=MAP'), ('rank', 'Rank · constellations that only go up')])
           + '</div></section>')
 nudge += '''<div class="next"><section class="tile"><p class="label">What’s next</p><p style="font-size:18px;margin-top:12px">Learn from beta testers with the opt-in usage report, take Just say it out of Labs, then a native app for the App Store.</p></section>
-<a class="tile" href="https://nudge.innovaspace.app"><span>Try it</span><span>nudge.innovaspace.app ↗</span></a></div>'''
+<a class="tile" href="https://nudge.innovaspace.app" target="_blank" rel="noopener"><span>Try it</span><span>nudge.innovaspace.app ↗</span></a></div>'''
 page('work/nudge.html', 'Nudge! case study · Chanel Perez', 'How Nudge! went from a single HTML file to a synced, behavior-science task app.', nudge, back=True)
 
 def wire(blocks):
@@ -386,7 +386,7 @@ for d in DISC:
     k = d['k']
     demo = d.get('demo')
     b = hero(k, d['tag'], (f'<i class="dot"></i>{E(d["stage"])}' if demo else f'In discovery · {E(d["stage"])}'), d['facts'],
-             f'<a class="btn gold" href="{demo}">Open {NAME[k]} ↗</a>' if demo else '')
+             f'<a class="btn gold" href="{demo}" target="_blank" rel="noopener">Open {NAME[k]} ↗</a>' if demo else '')
     b += pair('The problem', d['problem'], 'Hypothesis', d['hyp'])
     b += steps('How it works', d['note'], [(f'0{i+1}', t, x) for i, (t, x) in enumerate(d['how'])], num=True)
     b += grid4(d['feats'])
