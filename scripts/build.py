@@ -31,6 +31,22 @@ def icon(k, size):
 MOON = '<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'
 SUN = '<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
 
+# ── SEO: structured data for the home page, then robots.txt and sitemap.xml after every page is built ──
+import json as _json
+PAGES = []
+PERSON_LD = '<script type="application/ld+json">' + _json.dumps({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    'name': 'Chanel Perez',
+    'url': 'https://chanelperez.innovaspace.app/',
+    'image': 'https://chanelperez.innovaspace.app/assets/og.jpg',
+    'jobTitle': 'Founder and product builder',
+    'description': 'Independent product builder grounding small, gentle apps in psychology and behavioral science.',
+    'homeLocation': {'@type': 'Country', 'name': 'Philippines'},
+    'worksFor': {'@type': 'Organization', 'name': 'Innova Space', 'url': 'https://innovaspace.app/'},
+    'knowsAbout': ['Behavioral science', 'Psychology', 'Product design', 'Progressive web apps'],
+}, ensure_ascii=False) + '</script>'
+
 def page(path, title, desc, body, current='', back=False):
     url = 'https://chanelperez.innovaspace.app/' + ('' if path == 'index.html' else path[:-5])
     nav = ''.join(f'<a href="{href}"{" aria-current=\"page\"" if key == current else ""}{" class=\"hide-sm\"" if key == "work" else ""}>{label}</a>'
@@ -76,9 +92,12 @@ def page(path, title, desc, body, current='', back=False):
 </body>
 </html>
 '''
+    if path == 'index.html':
+        doc = doc.replace('</head>', PERSON_LD + '\n</head>', 1)
     out = ROOT / path
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(doc)
+    PAGES.append(path)
 
 def shot(name, alt, cls='shot', app='nudge'):
     return (f'<div class="{cls}"><img class="only-light" src="/assets/img/{app}-{name}-light.webp" alt="{E(alt)}" width="520" height="1125" loading="lazy">'
@@ -390,4 +409,11 @@ for d in DISC:
     page(f'work/{k}.html', f'{NAME[k]} case study · Chanel Perez', f'{NAME[k]}: {d["tag"]}', b, back=True)
 
 _unused = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22.5" fill="#0B0A09"/><text x="50" y="70" text-anchor="middle" font-family="Georgia,serif" font-size="62" fill="#D8B46A">C</text></svg>')
+BASE = 'https://chanelperez.innovaspace.app/'
+def _url(pth):
+    pth = pth[:-5] if pth.endswith('.html') else pth
+    return BASE if pth == 'index' else BASE + pth
+(ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    + ''.join(f'  <url><loc>{_url(x)}</loc></url>\n' for x in sorted(PAGES, key=lambda x: (x != 'index.html', x))) + '</urlset>\n')
+(ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n')
 print('built')
