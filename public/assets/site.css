@@ -292,3 +292,10 @@ footer.foot { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 .film .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 24px 0 18px; border-radius: 999px; border: 1px solid #D8B46A; background: rgba(11,10,9,.62); color: #D8B46A; font: 500 15px var(--sans); cursor: pointer; }
 .film .play[hidden] { display: none; }
 @media (max-width: 860px) { .film-tile { grid-template-columns: 1fr; } .film-tile .copy { padding: 28px; } }
+
+/* Link to the company site, always visible in the header */
+.nav .is-pill { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent); font-weight: 500; white-space: nowrap; }
+.nav .is-pill:hover { background: var(--accent); color: var(--on-accent); opacity: 1; }
+/* On small phones the header pill moves into the hero */
+.is-hero { display: none; }
+@media (max-width: 420px) { .nav .is-pill { display: none; } .btn.is-hero { display: inline-flex; border-color: var(--accent); color: var(--accent); } }
